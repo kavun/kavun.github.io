@@ -23,7 +23,10 @@
       small {
         color: #777;
       }
-      .nav, .content {
+      .nav {
+        margin: 0.5em 1em 0 1em;
+      }
+      .content {
         margin: 0.5em 1em 2em 1em;
       }
       .post-date {
@@ -48,9 +51,10 @@
         overflow-x: auto;
       }
       .logo {
-        vertical-align: middle;
         border-radius: 50%;
-        margin-right: 1em;
+        margin-right: 10px;
+        position: relative;
+        top: 0.7em;
       }
       a {
         color: #0088cc;
@@ -61,6 +65,12 @@
       a:focus {
         color: #005580;
         text-decoration: underline;
+      }
+      .top-tag {
+        padding: 0;
+        margin: 0 0 0 60px;
+        position: relative;
+        top: -30px;
       }
 
     </style>
@@ -76,8 +86,8 @@
     <div class="pure-g-r nav">
       <div class="pure-u-1-5"></div>
       <div class="pure-u-3-5">
-        <h1><a href="/"><img class="logo" src="//www.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215.png" />kavun</a></h1>
-        <blockquote>This is a space where I intend to share what I learn. I am a developer at <a href="http://www.e-builder.net">e-Builder</a>.</blockquote>
+        <h1><a href="/"><img class="logo" src="//www.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215?s=50" />kavun</a></h1>
+        <p class="top-tag">This is a space where I intend to share what I learn. I am a developer at <a href="http://www.e-builder.net">e-Builder</a>.</p>
       </div>
       <div class="pure-u-1-5"></div>
     </div>
