@@ -1,0 +1,13 @@
+---
+comments: false
+layout: post
+date: 2013-06-09
+slug: test-post
+title: Test Post
+summary: 'testing post by creating markdown in github'
+---
+### A test post!
+`with some code`
+```js
+function () {}
+```
