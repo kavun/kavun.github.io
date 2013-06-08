@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Kavun</title>
+    <meta name="description" content="blog">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.1.0/pure-min.css">
+    <script src="//use.edgefonts.net/source-code-pro;source-sans-pro.js"></script>
+    <style>
+      body {
+        font-family: source-sans-pro, sans-serif;
+      }
+      body * {
+        box-sizing: border-box;
+      }
+      code, .gist {
+        font-family: source-code-pro, monospace !important;
+        font-size: 0.9em !important;
+      }
+      .gist-meta a{color:#0088cc !important;text-decoration:none}
+      .gist-meta a:hover{color:#005580 !important}
+      small {
+        color: #777;
+      }
+      .nav, .content {
+        margin: 0.5em 1em 2em 1em;
+      }
+      .post-date {
+        position: relative;
+        display: block;
+        top: -15px;
+        border-bottom: 1px solid #777;
+      }
+      code {
+        background-color: #FAFAFA;
+        padding: 0 0.4em;
+        border: 1px solid #DDD;
+        border-radius: 5px;
+      }
+      pre > code {
+        padding: 0.5em 1em;
+        margin: 1em;
+        border-left: 4px solid #668;
+        white-space: pre;
+        display: block;
+        tab-size: 4;
+        overflow-x: auto;
+      }
+      .logo {
+        vertical-align: middle;
+        border-radius: 50%;
+        margin-right: 1em;
+      }
+      a {
+        color: #0088cc;
+        text-decoration: none;
+      }
+
+      a:hover,
+      a:focus {
+        color: #005580;
+        text-decoration: underline;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+
+
+
+
+    <div class="pure-g-r nav">
+      <div class="pure-u-1-5"></div>
+      <div class="pure-u-3-5">
+        <h1><a href="/"><img class="logo" src="//www.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215.png" />kavun</a></h1>
+        <blockquote>This is a space where I intend to share what I learn. I am a developer at <a href="http://www.e-builder.net">e-Builder</a>.</blockquote>
+      </div>
+      <div class="pure-u-1-5"></div>
+    </div>
+
+
+
+
+    <div class="pure-g-r content">
+      <div class="pure-u-1-5"></div>
+      <div class="pure-u-3-5">{{ content }}</div>
+      <div class="pure-u-1-5"></div>
+    </div>
+
+
+
+
+
+    <script>
+      var disqus_shortname = '{{ site.comments.disqus.short_name }}';
+      (function() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+    <script>
+      var _gaq = _gaq || [];
+      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', '{{ site.analytics.google.tracking_id }}']);
+      _gaq.push(['_setDomainName', '{{ site.analytics.google.domain }}']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

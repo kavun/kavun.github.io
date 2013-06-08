@@ -1,0 +1,13 @@
+---
+layout: layout
+title: "Kavun"
+---
+<div class="postlist">
+{% for post in site.posts offset: 0 limit: 50 %}
+  <div class="postlist-post">
+    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <small class="post-date">{{ post.date | date: "%B %e, %Y" }}</small>
+    <div class="post-body">{{ post.summary }}</div>
+  </div>
+{% endfor %}	
+</div>

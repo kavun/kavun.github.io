@@ -1,0 +1,27 @@
+auto: true
+markdown: rdiscount
+pygments: true
+
+title: Kavun
+
+url: http://kavun.github.io
+
+permalink: /:year/:month/:day/:title/
+
+author:
+    name: Kevin Reed
+    email: kevin.a.reed@gmail.com
+    github: kavun
+    twitter: kavun
+    gravatar: http://www.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215.png
+
+comments:
+    provider: disqus
+    disqus:
+        short_name: kavun
+
+analytics:
+    provider: google 
+    google: 
+        tracking_id: 'UA-41550976-1'
+        domain: 'kavun.github.io'

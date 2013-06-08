@@ -1,0 +1,11 @@
+{
+  "title"    : "{{ post.title }}",
+  "summary"  : "{{ post.summary }}",
+  "category" : "{{ post.category }}",
+  "url"      : "{{ site.url }}/{{ post.date | date: "%Y/%m/%d" }}/{{ post.slug }}/",
+  "date"     : {
+    "day"   : "{{ post.date | date: "%d" }}",
+    "month" : "{{ post.date | date: "%B" }}",
+    "year"  : "{{ post.date | date: "%Y" }}"
+  }
+}
