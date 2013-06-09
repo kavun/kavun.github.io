@@ -5,6 +5,7 @@
     <title>Kavun</title>
     <meta name="description" content="blog">
     <meta name="viewport" content="width=device-width">
+    <meta name="nibbler-site-verification" content="7360d623323d56749101016d91a98d56adea4755" />
     <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.1.0/pure-min.css">
     <script src="//use.edgefonts.net/source-code-pro;source-sans-pro.js"></script>
     <style>
@@ -14,9 +15,9 @@
       body * {
         box-sizing: border-box;
       }
-      code, .gist, .gist .gist-file {
-        font-family: source-code-pro, monospace !important;
-        font-size: 0.9em !important;
+      code {
+        font-family: source-code-pro, monospace;
+        font-size: 0.9em;
       }
       .gist-meta a{color:#0088cc !important;text-decoration:none}
       .gist-meta a:hover{color:#005580 !important}
@@ -43,12 +44,14 @@
       }
       pre > code {
         padding: 0.5em 1em;
-        margin: 1em;
-        border-left: 4px solid #668;
+        margin: 1em 0;
+        border: 1px solid #DDD;
+        border-left: 5px solid #DDD;
         white-space: pre;
         display: block;
         tab-size: 4;
         overflow-x: auto;
+        border-radius: 0;
       }
       .logo {
         border-radius: 50%;
@@ -114,6 +117,18 @@
         s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
       }());
+    </script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <script>
+      !function () {
+        var codes = document.getElementsByTagName('code');
+        for (var i = 0, l = codes.length; i < l; i++) {
+          var code = codes[i];
+          if (code.parentNode.nodeName.toLowerCase() === 'pre') {
+            code.className = 'prettyprint';
+          }
+        }
+      }();
     </script>
     <script>
       var _gaq = _gaq || [];
