@@ -103,6 +103,10 @@ if (1 < 2)
 	obj.test1();
 else
 	obj.test2()
+    
+// bad
+if (test) doSomthing();
+else doSomethingElse();
 ```
 
 ### Function Spacing
