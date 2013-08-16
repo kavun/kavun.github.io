@@ -2,7 +2,13 @@
 published: false
 ---
 
-## Javascript Style Guide
+## (yet another) Javascript Style Guide
+
+Adapted from
+
+- [A meta style guide for JavaScript - Dr. Axel Rauschmayer](http://www.2ality.com/2013/07/meta-style-guide.html)
+- [Maintainable Javascipt - Nicholas C. Zakas](http://shop.oreilly.com/product/0636920025245.do)
+- [Crockford](http://javascript.crockford.com/code.html)
 
 ### Indentation
 An indent is equal to one tab. This allows the developer to configure how many spaces to show for each tab in their editor. Indent with tabs, and space with spaces. Spaces should never occur on a line in front of a statement. Do not mix spaces and tabs.
