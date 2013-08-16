@@ -131,7 +131,7 @@ obj.test(function () {
 ```
 
 ### Semicolons
-There should be at most one statement per line. Every statement should end with a semicolon. It is better to be safe than to assume that ASI will cover your mistakes.
+There should be at most one statement per line. Every statement should end with a semicolon. It is better to be safe than to trust that [ASI](https://brendaneich.com/2012/04/the-infernal-semicolon/) will cover your mistakes.
 
 ```js
 // bad
@@ -232,7 +232,7 @@ if (testRetValue == null) {
 ```
 
 ### Undefined
-**Never** use the value `undefined`. It is fragile because it can be redefined. To check if a variable has been initialized use the `typeof` operator, or `void 0` to ensure a valid instance of `undefined`. Prefer `typeof`.
+**Never** use the value `undefined`. It is fragile because it can be [redefined](http://us6.campaign-archive1.com/?u=2cc20705b76fa66ab84a6634f&id=3ef2f3d32b). To check if a variable has been initialized use the `typeof` operator, or [`void 0`](http://us6.campaign-archive1.com/?u=2cc20705b76fa66ab84a6634f&id=d56bf8ad4f) to ensure a valid instance of `undefined`. Prefer `typeof`.
 ```js
 // good
 if (typeof test === 'undefined') {
@@ -334,7 +334,7 @@ var now = new Number('2'); // bad
 
 - Comment frequently to help other developers understand your code.
 - Keep comments updated. Comments pertaining to deleted code, and misleading comments are worse than no comments.
-- Document code using JSDoc. Document constuctors, objects, and methods.
+- Document code using [JSDoc](http://usejsdoc.org/). Document constuctors, objects, and methods.
 - All comments on their own line including documentation comments should be preceded by an empty line.
 
 ### Single Line Comments
