@@ -45,6 +45,7 @@ There should be no whitespace after an opening paren or before a closing paren.
 if ( sad ) {
 	obj.fn( sad );
 }
+
 // good
 if (sad) {
 	obj.fn(sad);
