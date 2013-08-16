@@ -136,7 +136,7 @@ function createError() {
 	var two = 2
 	return
 	{
-		msg: ‘uh oh’
+		msg: 'uh oh'
 	};
 }
 
@@ -145,7 +145,7 @@ function noError() {
 	var one = 1;
 	var two = 2;
 	return {
-		msg: ‘ok’
+		msg: 'ok'
 	};
 }
 ```
@@ -185,13 +185,13 @@ Never mix single and double quotes in the same file when defining String literal
 
 ```js
 // bad
-var help = “I’m coming!\
-	and I’m bringing a friend.”;
-var me   = ‘I\’m not ok.’;
+var help = "I'm coming!\
+	and I'm bringing a friend.";
+var me   = 'I\'m not ok.';
 
 // good
-var help = ‘I\’m coming! and I\’m bringing a friend.’;
-var me   = ‘I\’m going to be ok.’;
+var help = 'I\'m coming! and I\'m bringing a friend.';
+var me   = 'I\'m going to be ok.';
 ```
 
 ### Numbers
@@ -363,6 +363,7 @@ Use `/*` to begin multiline comments the are not documentation instead of the JS
 
 /**
  * this function will test something
+ *
  * @param {Array} arg1 - an array
  */
 function test(arg1) {
