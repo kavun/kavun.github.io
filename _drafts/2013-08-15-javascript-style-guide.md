@@ -4,6 +4,8 @@ published: false
 
 ## (yet another) Javascript Style Guide
 
+> Just because you can doesn't mean you should
+
 Adapted from
 
 - [A meta style guide for JavaScript - Dr. Axel Rauschmayer](http://www.2ality.com/2013/07/meta-style-guide.html)
@@ -81,7 +83,7 @@ obj.test({
     cell: 0
 });
 ```
-Always use brackets with `if`, `for`, `while`, and other compound statements. `else` should always be on the same line as the closing bracket on the preceding `if` statement.
+Always use brackets with `if`, `for`, `while`, and other compound statements. `else` should always be on the same line as the closing bracket of the preceding `if` statement.
 ```js
 // bad
 while (i--) obj.test();
@@ -157,7 +159,8 @@ function noError() {
 ### Variables
 
 - Variable declarations should occur where needed. It is not necessary to have all variable declarations at the top of each function.
-- Each variable should be on a separate line. The comma operator is not accepted when declaring variables, except in for loops. This allows adding and removing variable declarations trivial.
+- Each variable should be on a separate line. The comma operator is not accepted when declaring variables, except in for declarations. This allows adding and removing variable declarations trivial.
+
 ```js
 // bad
 function test() {
@@ -229,6 +232,12 @@ var testRetValue = obj.test();
 if (testRetValue == null) {
 	// testRetValue must be nothing
 }
+
+// good
+var maybe = null;
+if (somethingIsOk()) {
+	maybe = true;
+}
 ```
 
 ### Undefined
@@ -246,6 +255,8 @@ if (test === void 0) {
 if (test === undefined) {
 }
 ```
+
+### Checking for properties of an object
 To check if an object has a property, use the `in` operator, or `Object.prototype.hasOwnProperty()`. Do not use `.hasOwnProperty()` on DOM elements, because they do not have this method in IE7/8.
 ```js
 // good
@@ -271,7 +282,7 @@ if ('textContent' in domElement) {
 ```
 
 ### for ... in
-When using `for ... in`, always check if the object has each property. This is especially necessary for looping over an `Array` because `for ... in` checks all the way up the prototype chain.
+When using `for ... in`, _always_ check if the object has each property. This is especially necessary for looping over an `Array` because `for ... in` checks all the way up the prototype chain.
 ```js
 // good
 for (var prop in obj) {
@@ -285,7 +296,7 @@ for (var prop in obj) {
 
 - Opening brace should be on the same line as the containing statement
 - Each property value should be intendented once on the line underneath the opening brace
-- Do not quote property names
+- Do not quote property names. This forces all property names to be valid javascript variable names.
 - Do not insert a space preceding the colon between property names and values
 - If the value is a function there should be an empty line preceding and following it
 - The closing brace should be on the last line by itself, followed by a semicolon
@@ -308,7 +319,7 @@ var obj = { one: 1, 'two': 2 }
 ```
 
 ### Literals vs. Constructors
-Use literals instead and native coersion instead of native Object contructors. Basically, never use the native Object constructors
+Use literals and native coersion instead of native Object contructors. Basically, never use the native Object constructors. An exeption to this can be `RegExp` because sometimes it is necessary in order to dynamically create regular expressions at runtime.
 
 ```js
 var obj = new Object(); // bad
@@ -334,7 +345,7 @@ var now = new Number('2'); // bad
 
 - Comment frequently to help other developers understand your code.
 - Keep comments updated. Comments pertaining to deleted code, and misleading comments are worse than no comments.
-- Document code using [JSDoc](http://usejsdoc.org/). Document constuctors, objects, and methods.
+- Document code using [JSDoc](http://usejsdoc.org/). Document constuctors, objects, and methods. Use [sublime-jsdocs](https://github.com/spadgos/sublime-jsdocs) when editing in Sublime Text to generate the documentation comment stubs for you.
 - All comments on their own line including documentation comments should be preceded by an empty line.
 
 ### Single Line Comments
@@ -379,8 +390,3 @@ function test(arg1) {
 	var arr = arg1;
 }
 ```
-
-
-
-
-
