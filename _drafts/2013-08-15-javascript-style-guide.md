@@ -117,7 +117,7 @@ if (test) doSomthing();
 else doSomethingElse();
 ```
 
-### Function Spacing
+### Functions
 Named functions should have no space between the function name and open paren for the parameter list. Anonymous (unnamed) functions should have one space between `function` and the opening paren. This way, anonymous functions will appear like "functions with no name".
 
 ```js
@@ -135,6 +135,23 @@ function namedFunction(a, b, c) {
 var fn = function (a, b, c) {
 };
 obj.test(function (a, b, c) {
+});
+```
+
+Consider the benefits of named function expressions. They are able to call themselves and will show up as named functions when debugging.
+
+```js
+// good
+var factorial = function factorial(number) {
+	if (number < 2) {
+		return 1;
+	}
+	return (number * factorial(number - 1));
+};
+
+// good
+$.ajax(url).done(function ajaxDone() {
+	
 });
 ```
 
@@ -164,21 +181,25 @@ function noError() {
 
 ### Variables
 
-Variable declarations should occur where needed. It is not necessary to have all variable declarations at the top of each function. Be aware of hoisting, but do not go overboard and declare every single locally scoped variable at the top of a function. A good example of when not to do declare a variable at the top of a function is when defining `for` loops.
+Variable declarations should occur where needed. It is not necessary to have all variable declarations at the top of each function. Be aware of [hoisting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Scope_Cheatsheet), but do not go overboard and declare every single locally scoped variable at the top of a function. A good example of when not to do declare a variable at the top of a function is when defining `for` loops.
 
 ```js
 // bad
 function loopOverItems(items) {
 	var i = 0, l = items.length, item;
-    for (;i<l;i++) {
-    	item = items[i];
+    if (someNamespace.canDo()) {
+    	for (;i<l;i++) {
+    		item = items[i];
+    	}
     }
 }
 
 // good
 function loopOverItems(items) {
-    for (var i = 0, l = items.length; i < l; i++) {
-    	var item = items[i];
+	if (someNamespace.canDo()) {
+    	for (var i = 0, l = items.length; i < l; i++) {
+    		var item = items[i];
+    	}
     }
 }
 ```
