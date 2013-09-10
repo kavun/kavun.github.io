@@ -4,7 +4,7 @@ date: 2013-09-09
 layout: post
 slug: javascript-style-guide
 title: Javascript Style Guide
-summary: 'Just because you can doesn't mean you should.'
+summary: 'Just because you can does not mean you should.'
 ---
 
 Adapted from
