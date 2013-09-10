@@ -118,6 +118,73 @@ if (test) doSomthing();
 else doSomethingElse();
 ```
 
+### Naming
+Name variables clearly so that another developer could understand them. Avoid single character names at all costs. Avoid [snake case](http://en.wikipedia.org/wiki/Snake_case). Use these methods for naming:
+
+- variables, objects, properties, non-constructor functions: camel case
+- constansts: upper case, separating words with underscores
+- constructors: pascal case
+
+```js
+/*
+ * Good
+ */
+(function (undefined) {
+	var ONE = 1;
+    var TRUE = true;
+    var UNDEF = undefined;
+    var EMPTY_GUID = '00000000-0000-0000-0000-000000000000';
+    
+    function Creation(genes) {
+    	this.kind = genes.kind; 
+    }
+    
+    var creations = [];
+    var create = function (numCreations) {
+    	for (var i = 0; i < numCreations; i++) {
+        	creations.push(new Creation({
+            	kind: 'A ' + i + ' kind.'
+            }));
+        }
+    }
+    
+    exampleNamespace.theCreator = {
+    	create: create
+    }
+})();
+
+exampleNamespace.theCreator.create(1904);
+
+/*
+ * Bad
+ */
+(function (undefined) {
+	var one = 1;
+    var True = true;
+    var u = undefined;
+    var e_g = '00000000-0000-0000-0000-000000000000';
+    
+    function creation(genes) {
+    	this.kind = genes.kind; 
+    }
+    
+    var Creations = [];
+    function Create(num_creations) {
+    	for (var i = 0; i < num_creations; i++) {
+        	Creations.push(new creation({
+            	kind: 'A ' + i + ' kind.'
+            }));
+        }
+    }
+    
+    ExampleNamespace.Creator = {
+    	create: Create
+    }
+})();
+
+ExampleNamespace.Creator.create(1904);
+```
+
 ### Functions
 Named functions should have no space between the function name and opening paren for the parameter list. Anonymous (unnamed) functions should have one space between `function` and the opening paren. This way, anonymous functions will appear like "functions with no name".
 
