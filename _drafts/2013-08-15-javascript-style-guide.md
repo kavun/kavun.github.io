@@ -11,6 +11,7 @@ Adapted from
 - [A meta style guide for JavaScript - Dr. Axel Rauschmayer](http://www.2ality.com/2013/07/meta-style-guide.html)
 - [Maintainable Javascipt - Nicholas C. Zakas](http://shop.oreilly.com/product/0636920025245.do)
 - [Crockford](http://javascript.crockford.com/code.html)
+- [Idiomatic Javascript](https://github.com/rwaldron/idiomatic.js/)
 
 ### Indentation
 An indent is equal to one tab. This allows the developer to configure how many spaces to show for each tab in their editor. Indent with tabs, and space with spaces. Spaces should never occur on a line in front of a statement. After a statement begins, feel free to use spaces to align variables or make code easier to read.
@@ -222,7 +223,7 @@ function test() {
 ```
 
 ### Strings
-Never mix single and double quotes in the same file when defining String literals. Prefer single over double quotes for String literals. Never use a slash to create a new line in a string.
+Never mix single and double quotes in the same file when defining String literals. Prefer single over double quotes for String literals. Never use a slash to create a new line in a string, because this will result in a SyntaxError if there are any whitespace characters after the slash.
 
 ```js
 // bad
@@ -276,7 +277,7 @@ if (somethingIsOk()) {
 ```
 
 ### Undefined
-**Never** use the value `undefined`. It is fragile because it can be [redefined](http://us6.campaign-archive1.com/?u=2cc20705b76fa66ab84a6634f&id=3ef2f3d32b). To check if a variable has been initialized use the `typeof` operator against the string `'undefined'`, or by checking equality (non-strict) with `null`. Avoid the use of [`void 0`](http://us6.campaign-archive1.com/?u=2cc20705b76fa66ab84a6634f&id=d56bf8ad4f) since it is not easily understood by beginners. Prefer `typeof`.
+**Never** use the value `undefined`. It is fragile because it can be [redefined](http://us6.campaign-archive1.com/?u=2cc20705b76fa66ab84a6634f&id=3ef2f3d32b). To check if a variable has been initialized use the `typeof` operator against the string `'undefined'`, or by checking equality (non-strict) with `null`. Avoid the use of [`void 0`](http://us6.campaign-archive1.com/?u=2cc20705b76fa66ab84a6634f&id=d56bf8ad4f) since it is not easily understood by beginners. Avoid checking for truthiness since the variable might hold a `Boolean` or `0`. Prefer `typeof`.
 ```js
 // good
 if (typeof test === 'undefined') {
@@ -290,6 +291,10 @@ if (test === void 0) {
 
 // bad
 if (test === undefined) {
+}
+
+// bad (when checking for initialitation)
+if (test) {
 }
 ```
 
