@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2013-06-08
+date: 2013-09-09
 layout: post
 slug: javascript-style-guide
 title: Javascript Style Guide
