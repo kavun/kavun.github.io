@@ -119,7 +119,7 @@ else doSomethingElse();
 ```
 
 ### Functions
-Named functions should have no space between the function name and open paren for the parameter list. Anonymous (unnamed) functions should have one space between `function` and the opening paren. This way, anonymous functions will appear like "functions with no name".
+Named functions should have no space between the function name and opening paren for the parameter list. Anonymous (unnamed) functions should have one space between `function` and the opening paren. This way, anonymous functions will appear like "functions with no name".
 
 ```js
 // bad
