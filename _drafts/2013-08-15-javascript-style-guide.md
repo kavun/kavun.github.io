@@ -2,7 +2,7 @@
 published: false
 ---
 
-## (yet another) Javascript Style Guide
+## Javascript Style Guide
 
 > Just because you can doesn't mean you should
 
