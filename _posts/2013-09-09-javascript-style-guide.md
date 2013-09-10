@@ -1,6 +1,11 @@
-## Javascript Style Guide
-
-> Just because you can doesn't mean you should
+---
+comments: true
+date: 2013-06-08
+layout: post
+slug: javascript-style-guide
+title: Javascript Style Guide
+summary: 'Just because you can doesn't mean you should.'
+---
 
 Adapted from
 
