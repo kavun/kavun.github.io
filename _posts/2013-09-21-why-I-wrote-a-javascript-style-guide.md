@@ -31,7 +31,7 @@ This is a hypothetical code sample, but apart from the fact that this code is no
     }
     
     var btnSave = document.getElementById('btnSave');
-    var btnApprove = document.getElementById('btnApprove);
+    var btnApprove = document.getElementById('btnApprove');
     if (btnSave) {
     	btnSave.setAttribute('disabled', 'disabled');
         btnApprove.removeAttribute('disabled');
