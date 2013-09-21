@@ -3,7 +3,7 @@ comments: true
 date: 2013-09-21
 layout: post
 slug: why-I-wrote-a-javascript-style-guide
-title: Why I wrote a javascript style guide
+title: Why I Wrote a Javascript Style Guide
 summary: 'My reasoning for writing my own style guide instead of choosing to use one of the many excellent style guides that already exist.'
 ---
 
