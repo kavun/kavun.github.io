@@ -2,9 +2,16 @@
 published: false
 ---
 
-## Quick Javascript Inheritance
+---
+comments: true
+date: 2013-09-27
+layout: post
+slug: quick-javascript-inheritance
+title: Quick Javascript Inheritance
+summary: 'Using jQuery.extend to create quick and dirty inheritance.'
+---
 
-Sometimes its best to keep things quick and dirty.
+Sometimes its best to keep things quick.
 
 [`Object.create(Person.prototype)`](http://javascript.crockford.com/prototypal.html) is pretty simple, but what if we want an inheriting object to overwrite some properties as well as methods? By creating a new object from another's `prototype`, you are only inheriting methods, unless you just don't care and put [all your data in an object's `prototype`](http://www.2ality.com/2013/09/data-in-prototypes.html).
 
@@ -45,4 +52,4 @@ So lets keep things simple, quick, and a little dirty. Use [`$.extend`](http://a
     > Guy {name: "", age: 0, makeImmortal: function, gender: "male", sayName: function}
     */
 
-Does `new Guy() instanceof Person === true`? Of course not. Did I say it was quick and dirty? Yes.
+Is `new Guy() instanceof Person === true`? Of course not. Did I say it was quick and dirty? Yes.
