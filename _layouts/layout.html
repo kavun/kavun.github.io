@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="nibbler-site-verification" content="7360d623323d56749101016d91a98d56adea4755" />
     <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.1.0/pure-min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <script src="//use.edgefonts.net/source-code-pro;source-sans-pro.js"></script>
     <style>
       body {
@@ -56,12 +57,7 @@
         overflow-x: auto;
         border-radius: 0;
       }
-      .logo {
-        border-radius: 50%;
-        margin-right: 10px;
-        position: relative;
-        top: 0.7em;
-      }
+      
       a {
         color: #0088cc;
         text-decoration: none;
@@ -74,9 +70,81 @@
       }
       .top-tag {
         padding: 0;
-        margin: 0 0 0 60px;
+        margin: 0;
         position: relative;
         top: -30px;
+      }
+
+      .leftnav {
+        width: 64px;
+        height: 5000px;
+        position: fixed;
+        padding-left: 7px;
+        top: 0;
+        z-index: 9000;
+        left: -32px;
+        -webkit-transition: all 0.3s ease;  
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+      .leftnav * {
+        -webkit-transition: all 0.3s ease;  
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+      }
+      .leftnav:hover {
+        left: 0;
+        background: #EEE;
+      }
+      .leftnav a {
+        display: block;
+        text-decoration: none;
+      }
+
+      .logo {
+        margin: 15px 0;
+        width: 50px;
+        height: 50px;
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+      }
+      .logo img {
+        border-radius: 50%;
+      }
+      .leftnav.active .logo{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+      }
+      .leftnav i {
+        font-size: 57px;
+        display: block;
+        color: #FFF;
+        visibility: hidden;
+      }
+      .leftnav.active i {
+        visibility: visible;
+        color: #777;
+      }
+
+      .github-follow {
+        display: none;
+      }
+
+      @media (max-width: 767px) {
+        .leftnav {
+          display: none;
+        }
+        .github-follow {
+          display: inline;
+        }
       }
 
     </style>
@@ -87,13 +155,16 @@
     <![endif]-->
 
 
-
+    <div class="leftnav">
+      <a class="logo" href="/"><img src="//www.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215?s=50" /></a>
+      <a href="https://github.com/kavun"><i class="icon-github"></i></a>
+    </div>
 
     <div class="pure-g-r nav">
       <div class="pure-u-1-5"></div>
       <div class="pure-u-3-5">
-        <h1><a href="/"><img class="logo" src="//www.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215?s=50" />kavun</a></h1>
-        <p class="top-tag">This is a space where I intend to share what I learn. I am a developer at <a href="http://www.e-builder.net">e-Builder</a>.<br />Follow me on <a href="https://github.com/kavun">GitHub</a></p>
+        <h1><a href="/">kavun</a></h1>
+        <p class="top-tag">This is a space where I intend to share what I learn. I am a developer at <a href="http://www.e-builder.net">e-Builder</a>.<br /><span class="github-follow">Follow me on <a href="https://github.com/kavun">GitHub</a></span></p>
       </div>
       <div class="pure-u-1-5"></div>
     </div>
@@ -149,6 +220,10 @@
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $('.leftnav').hover(function () { $(this).addClass('active'); } , function () { $(this).removeClass('active'); });
     </script>
   </body>
 </html>
