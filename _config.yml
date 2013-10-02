@@ -5,7 +5,7 @@ pygments: true
 title: Kavun
 
 url: http://kavun.github.io
-
+description: This is a space where I intend to share what I learn.
 permalink: /:year/:month/:day/:title/
 
 author:
