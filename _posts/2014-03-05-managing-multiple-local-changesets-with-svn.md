@@ -1,6 +1,6 @@
 ---
 comments: true
-date: 2014-3-5
+date: 2014-03-05
 layout: post
 slug: managing-multiple-local-changesets-with-svn
 title: Managing multiple local changesets with SVN
