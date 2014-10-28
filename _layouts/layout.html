@@ -31,11 +31,13 @@
       .content {
         margin: 0.5em 1em 2em 1em;
       }
+      h2 {
+        border-top: 1px solid #777;
+        margin-bottom: 0.1em;
+      }
       .post-date {
-        position: relative;
         display: block;
-        top: -15px;
-        border-bottom: 1px solid #777;
+        margin-bottom: 1em;
       }
       code {
         background-color: #FAFAFA;
@@ -57,7 +59,7 @@
         overflow-x: auto;
         border-radius: 0;
       }
-      
+
       a {
         color: #0088cc;
         text-decoration: none;
@@ -82,23 +84,27 @@
         padding-left: 7px;
         top: 0;
         z-index: 9000;
-        left: -32px;
-        -webkit-transition: all 0.3s ease;  
+        left: 0px;
+        -webkit-transition: all 0.3s ease;
         -moz-transition: all 0.3s ease;
         -ms-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
         transition: all 0.3s ease;
+        background: #EEE;
       }
       .leftnav * {
-        -webkit-transition: all 0.3s ease;  
+        -webkit-transition: all 0.3s ease;
         -moz-transition: all 0.3s ease;
         -ms-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
         transition: all 0.3s ease;
       }
-      .leftnav:hover {
-        left: 0;
-        background: #EEE;
+      .leftnav .logo img {
+        -webkit-transition: all 0.1s ease;
+        -moz-transition: all 0.1s ease;
+        -ms-transition: all 0.1s ease;
+        -o-transition: all 0.1s ease;
+        transition: all 0.1s ease;
       }
       .leftnav a {
         display: block;
@@ -109,41 +115,42 @@
         margin: 15px 0;
         width: 50px;
         height: 50px;
-        -webkit-transform: rotate(180deg);
-        transform: rotate(180deg);
-        -moz-transform: rotate(180deg);
-        -o-transform: rotate(180deg);
       }
       .logo img {
         border-radius: 50%;
       }
-      .leftnav.active .logo{
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-      }
       .leftnav i {
         font-size: 57px;
         display: block;
-        color: #FFF;
-        visibility: hidden;
-      }
-      .leftnav.active i {
         visibility: visible;
+        color: #DDD;
+      }
+      .leftnav i:hover {
         color: #777;
       }
 
-      .github-follow {
-        display: none;
+      .logo img:hover {
+        box-shadow: 0 0 0 3px #777;
       }
 
       @media (max-width: 767px) {
         .leftnav {
-          display: none;
+          height: 64px;
+          width: inherit;
+          position: static;
+          top: auto;
+          left: auto;
+          z-index: auto;
         }
-        .github-follow {
-          display: inline;
+        .leftnav a, .leftnav i {
+          display: inline-block;
+        }
+        .leftnav i {
+          padding-left: 0.1em;
+          vertical-align: bottom;
+        }
+        .logo {
+          margin: 7px 0;
         }
       }
 
@@ -157,21 +164,15 @@
 
     <div class="leftnav">
       <a class="logo" href="/"><img src="//www.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215?s=50" /></a>
-      <a href="https://github.com/kavun"><i class="icon-github"></i></a>
-    </div>
-
-    <div class="pure-g-r nav">
-      <div class="pure-u-1-5"></div>
-      <div class="pure-u-3-5">
-        <h1><a href="/">kavun</a></h1>
-        <p class="top-tag">This is a space where I intend to share what I learn. <span class="github-follow">Follow me on <a href="https://github.com/kavun">GitHub</a></span></p>
-      </div>
-      <div class="pure-u-1-5"></div>
+      <a href="https://github.com/kavun" target="_githubkavun"><i class="icon-github"></i></a>
+      <a href="https://twitter.com/kavun" target="_twitterkavun"><i class="icon-twitter"></i></a>
+      <a href="https://www.linkedin.com/pub/kevin-reed/48/74/404" target="_linkedinkavun"><i class="icon-linkedin"></i></a>
     </div>
 
 
 
 
+  
     <div class="pure-g-r content">
       <div class="pure-u-1-5"></div>
       <div class="pure-u-3-5">{{ content }}</div>

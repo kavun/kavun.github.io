@@ -4,8 +4,8 @@ pygments: true
 
 title: Kavun
 
-url: http://kavun.github.io
-description: This is a space where I intend to share what I learn.
+url: http://kevinareed.com
+description: I'm a software developer. Here are some things I'm interested in.
 permalink: /:year/:month/:day/:title/
 
 author:
@@ -21,7 +21,7 @@ comments:
         short_name: kavun
 
 analytics:
-    provider: google 
-    google: 
+    provider: google
+    google:
         tracking_id: 'UA-41550976-1'
         domain: 'kavun.github.io'
