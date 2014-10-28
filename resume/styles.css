@@ -1,0 +1,147 @@
+html {
+	box-sizing: border-box;
+}
+*, *:after, *:before {
+	boz-sizing: inherit;
+}
+body {
+	margin: 0;
+	padding: 0 0 2em 0;
+	background: #FFF;
+	color: #333;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 16px;
+	line-height: 21px;
+	border-top: 3px solid #333;
+}
+.wrapper {
+	position: relative;
+	z-index: 1;
+	max-width: 90%;
+	margin: 0 auto;
+}
+a {
+	color: #404d5b;
+	text-decoration: none;
+}
+
+.link-scaleup a {
+	color: rgb(0, 127, 187);
+}
+a:hover,
+a:focus {
+	border-radius: 0.5em;
+	background-color: #EEE;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.3em; }
+h3 { font-size: 1.2em; }
+h4 { font-size: 1.1em; }
+
+h2 {
+	border-top: 1px solid #333;
+	padding-top: 5px;
+}
+h3 { margin-bottom: 0.1em; }
+h4 { margin: 0.5em 0 0.1em 0; }
+p { margin: 0.5em 0; }
+.fluid {
+	display: inline-block;
+	vertical-align: top;
+}
+.timeframe {
+	font-weight: normal;
+	font-size: 0.8em;
+	white-space: nowrap;
+}
+.skill {
+	border-radius: 0.5em;
+	color: #000;
+	padding: 0 0.4em;
+	line-height: 1.5em;
+	white-space: nowrap;
+}
+.bg-red .skill { background-color: rgb(235, 197, 205); }
+.bg-yellow .skill { background-color: rgb(243, 242, 217); }
+.bg-green .skill {	background-color: rgb(219, 243, 212); }
+.bg-blue .skill { background-color: rgb(225, 237, 245); }
+.bg-purple .skill {	background-color: rgb(237, 226, 246); }
+.bg-grey .skill { background-color: rgb(207, 207, 207); }
+.avatar {
+	margin-left: 0.5em;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+.title { margin-bottom: 0; }
+.nowrap { white-space: nowrap; }
+.avatar {
+	background: url('//s.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215?s=100');
+	width: 75px;
+	height: 75px;
+	background-size: 75px;
+	display: inline-block;
+	margin-top: 1em;
+}
+
+@media screen and (min-width: 600px) {
+	.wrapper { max-width: 75%; }
+	body {
+		font-size: 17px;
+		line-height: 23px;
+	}
+	.avatar {
+		width: 75px;
+		height: 75px;
+		background-size: 75px;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.wrapper {
+		max-width: 65%;
+	}
+	body {
+		font-size: 18px;
+		line-height: 24px;
+	}
+	.avatar {
+		width: 100px;
+		height: 100px;
+		background-size: 100px;
+	}
+}
+@media screen and (min-width: 1000px) {
+	.wrapper {
+		max-width: 60%;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.wrapper {
+		max-width: 55%;
+	}
+	body {
+		font-size: 18px;
+		line-height: 24px;
+	}
+  	.avatar {
+		width: 100px;
+		height: 100px;
+		background-size: 100px;
+	}
+}
+@media print {
+	body {
+		font-size: 10pt;
+		line-height: 13pt;
+		border-top: 0;
+	}
+	.skill {
+		background-color: #FFF !important;
+		padding: 0;
+	}
+	.pdflink {
+		display: none;
+	}
+}
