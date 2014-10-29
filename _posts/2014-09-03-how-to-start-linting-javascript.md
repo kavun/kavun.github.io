@@ -67,7 +67,7 @@ our errors have turned into warnings. To remove the errors and warnings complete
 set the rule value to `0`. The ability to show warnings instead of errors is a
 very nice addition to ESLint when compared to JSHint.
 
-![ESLint in Sublime Text 3](http://localhost:4000/assets/lint-eslint-sublime-1.png)
+![ESLint in Sublime Text 3](/assets/lint-eslint-sublime-1.png)
 
 ### Configuration files: `.eslintrc`
 
