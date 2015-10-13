@@ -24,4 +24,4 @@ analytics:
     provider: google
     google:
         tracking_id: 'UA-41550976-1'
-        domain: 'kavun.github.io'
+        domain: 'kevinareed.com'
