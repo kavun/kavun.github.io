@@ -9,35 +9,32 @@ layout: layout
 </div>
 
 {% if page.comments %}
-<h2>Comments</h2>
-<!-- START: Livefyre Embed -->
-<div id="livefyre-comments"></div>
-<script type="text/javascript" src="//cdn.livefyre.com/Livefyre.js"></script>
-<script type="text/javascript">
-(function () {
-    var networkConfig = {
-        network: "livefyre.com"
-    };
-    
-    Livefyre.require(['fyre.conv#3'], function (Conv) {
-        var articleId = Conv.makeArticleId(null);
-        var convConfig = {
-            el: 'livefyre-comments',
-            network: "livefyre.com",
-            siteId: "335516",
-            articleId: articleId,
-            signed: false,
-            collectionMeta: {
-                articleId: articleId,
-                url: Conv.makeCollectionUrl(),
-            }
-        };
-        
-        new Conv(networkConfig, [convConfig], function (commentsWidget) {}());
-    });
-    
-}());
 
-</script>
-<!-- END: Livefyre Embed -->
+<div class="social-sharing is-clean" data-permalink="https://kevinareed.com{{ page.url }}">
+
+    <!-- https://developers.facebook.com/docs/plugins/share-button/ -->
+    <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://kevinareed.com{{ page.url }}" class="share-facebook">
+      <span class="icon icon-facebook" aria-hidden="true"></span>
+      <span class="share-title">Share</span>
+      <span class="share-count">0</span>
+    </a>
+
+    <!-- https://dev.twitter.com/docs/intents -->
+    <a target="_blank" href="http://twitter.com/share?url=https://kevinareed.com{{ page.url }}&amp;text={{ page.title }} via @kavun&amp;" class="share-twitter">
+      <span class="icon icon-twitter" aria-hidden="true"></span>
+      <span class="share-title">Tweet</span>
+      <span class="share-count">0</span>
+    </a>
+
+    <!-- https://developers.google.com/+/web/share/ -->
+    <a target="_blank" href="http://plus.google.com/share?url=https://kevinareed.com{{ page.url }}" class="share-google">
+      <!-- Cannot get Google+ share count with JS yet -->
+      <span class="icon icon-google" aria-hidden="true"></span>
+      <span class="share-count">+1</span>
+    </a>
+    
+  </div>
+  
+  <script src="https://cdn.rawgit.com/cshold/social-sharing-buttons/master/social-buttons.js"></script>
+  <link rel="stylesheet" href="https://cdn.rawgit.com/cshold/social-sharing-buttons/master/social-buttons.css" />
 {% endif %}
