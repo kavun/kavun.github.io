@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="nibbler-site-verification" content="7360d623323d56749101016d91a98d56adea4755" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.1.0/pure-min.css">
+    <script src="//use.edgefonts.net/source-code-pro;source-sans-pro.js"></script>
     <style>
       body {
         font-family: source-sans-pro, sans-serif;
@@ -156,6 +157,15 @@
       }
 
     </style>
+    <script>
+      /*!
+      loadCSS: load a CSS file asynchronously.
+      [c]2015 @scottjehl, Filament Group, Inc.
+      Licensed MIT
+      */
+      !function(e){"use strict";e.loadCSS=function(t,n,r){var i,l=e.document,o=l.createElement("link");if(n)i=n;else{var a=(l.body||l.getElementsByTagName("head")[0]).childNodes;i=a[a.length-1]}var s=l.styleSheets;o.rel="stylesheet",o.href=t,o.media="only x",i.parentNode.insertBefore(o,n?i:i.nextSibling);var f=function(e){for(var t=o.href,n=s.length;n--;)if(s[n].href===t)return e();setTimeout(function(){f(e)})};return o.onloadcssdefined=f,f(function(){o.media=r||"all"}),o}}(this);
+    </script>
+
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -182,8 +192,10 @@
 
 
 
-    <script src="//use.edgefonts.net/source-code-pro;source-sans-pro.js"></script>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    
+    <script>
+      loadCSS('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
+    </script>
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
     <script>
       !function () {
@@ -214,9 +226,9 @@
       })();
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="//cdn.rawgit.com/cshold/social-sharing-buttons/master/social-buttons.js"></script>
     <script>
         $('.leftnav').hover(function () { $(this).addClass('active'); } , function () { $(this).removeClass('active'); });
     </script>
+    <script src="//cdn.rawgit.com/cshold/social-sharing-buttons/master/social-buttons.js"></script>
   </body>
 </html>
