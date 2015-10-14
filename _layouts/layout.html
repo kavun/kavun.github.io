@@ -194,7 +194,6 @@
       */
       !function(e){"use strict";e.loadCSS=function(t,n,r){var i,l=e.document,o=l.createElement("link");if(n)i=n;else{var a=(l.body||l.getElementsByTagName("head")[0]).childNodes;i=a[a.length-1]}var s=l.styleSheets;o.rel="stylesheet",o.href=t,o.media="only x",i.parentNode.insertBefore(o,n?i:i.nextSibling);var f=function(e){for(var t=o.href,n=s.length;n--;)if(s[n].href===t)return e();setTimeout(function(){f(e)})};return o.onloadcssdefined=f,f(function(){o.media=r||"all"}),o}}(this);
     
-      loadCSS('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
       loadCSS('//fonts.googleapis.com/css?family=Source+Serif+Pro|Source+Sans+Pro');
     </script>
   </head>
@@ -252,5 +251,8 @@
         $('.leftnav').hover(function () { $(this).addClass('active'); } , function () { $(this).removeClass('active'); });
     </script>
     <script src="//cdn.rawgit.com/cshold/social-sharing-buttons/master/social-buttons.js"></script>
+    <script>
+      loadCSS('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
+    </script>
   </body>
 </html>
