@@ -21,17 +21,14 @@ body {
 	margin: 0 auto;
 }
 a {
-	color: #404d5b;
-	text-decoration: none;
+    color: #0088cc;
+    text-decoration: none;
 }
 
-.link-scaleup a {
-	color: rgb(0, 127, 187);
-}
 a:hover,
 a:focus {
-	border-radius: 0.5em;
-	background-color: #EEE;
+    color: #005580;
+    text-decoration: underline;
 }
 
 h1 { font-size: 2em; }

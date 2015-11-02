@@ -15,37 +15,39 @@ Of course [there are](https://github.com/Gozala/selfish) [more complex methods](
 
 So lets keep things simple, quick, and a little dirty. Use [`$.extend`](http://api.jquery.com/jQuery.extend/) directly onto the created instance to create an inheritance chain. If jQuery is not your cup of tea, [`_.extend`](http://underscorejs.org/docs/underscore.html#section-78), or any [generic object extending function](https://github.com/segmentio/extend/blob/master/index.js) will work.
 
-	function Person(options) {
-		$.extend(this, Person.defaults, options);
-	}
-    
-	Person.defaults = {
-		name: '',
-		age: 0
-	};
-	
-	Person.prototype.makeImmortal = function () {
-		this.age = Infinity;
-	};
-	
-	function Guy(options) {
-		$.extend(this, new Person(options), Guy.defaults, options);
-	}
-	
-	Guy.defaults = {
-		gender: 'male'
-	};
-	
-	Guy.prototype.sayName = function () {
-		return this.name;
-	};
-	
-	/*
-	var person = new Person();
-	> Person {name: "", age: 0, makeImmortal: function}
-	
-	var guy = new Guy();
-	> Guy {name: "", age: 0, makeImmortal: function, gender: "male", sayName: function}
-	*/
+{% highlight javascript %}
+function Person(options) {
+    $.extend(this, Person.defaults, options);
+}
+
+Person.defaults = {
+    name: '',
+    age: 0
+};
+
+Person.prototype.makeImmortal = function () {
+    this.age = Infinity;
+};
+
+function Guy(options) {
+    $.extend(this, new Person(options), Guy.defaults, options);
+}
+
+Guy.defaults = {
+    gender: 'male'
+};
+
+Guy.prototype.sayName = function () {
+    return this.name;
+};
+
+/*
+var person = new Person();
+> Person {name: "", age: 0, makeImmortal: function}
+
+var guy = new Guy();
+> Guy {name: "", age: 0, makeImmortal: function, gender: "male", sayName: function}
+*/
+{% endhighlight %}
 
 Is `new Guy() instanceof Person === true`? Of course not. Did I say it was quick and dirty? Yes.

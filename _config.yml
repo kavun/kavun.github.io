@@ -1,11 +1,9 @@
-auto: true
-markdown: rdiscount
-pygments: true
+highlighter: rouge
 
-title: Kavun
+title: Kevin Reed
 
-url: http://kevinareed.com
-description: I'm a software developer. Here are some things I'm interested in.
+url: https://kevinareed.com
+description: Full stack software developer. These are my thoughts on Javascript, .NET, DevOps, and other web development topics.
 permalink: /:year/:month/:day/:title/
 
 author:
@@ -14,11 +12,6 @@ author:
     github: kavun
     twitter: kavun
     gravatar: http://www.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215.png
-
-comments:
-    provider: disqus
-    disqus:
-        short_name: kavun
 
 analytics:
     provider: google

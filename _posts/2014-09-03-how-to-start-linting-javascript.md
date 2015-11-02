@@ -78,29 +78,33 @@ configuration for any project.
 
 A simple `.eslintrc` file in JSON would look like
 
-    {
-      "globals": {
+{% highlight json %}
+{
+    "globals": {
         "myModule": true
-      },
-      "env": {
+    },
+    "env": {
         "browser": true
-      },
-      "rules": {
+    },
+    "rules": {
         "no-unused-vars": 1,
         "quotes": 1
-      }
     }
+}
+{% endhighlight %}
 
 or in YAML
 
-    ---
-      globals
-        myModule: true
-      env
-        browser: true
-      rules
-        no-unused-vars: 1
-        quotes: 1
+{% highlight yaml %}
+---
+  globals
+    myModule: true
+  env
+    browser: true
+  rules
+    no-unused-vars: 1
+    quotes: 1
+{% endhighlight %}
 
 Find a [full list of rules here](http://eslint.org/docs/rules/).
 
@@ -124,32 +128,33 @@ ESLint is one of the newest linting tools available. Other linters have been aro
 
 If you use a build tool like Grunt or Gulp you can easily run multiple linters at once. Here is a sample Gulp setup using ESLint, JSHint, and JSCS, assuming you have an `.eslintrc`, `.jshintrc`, and `.jscsrc` already set up at the root of your project at minimum. Check out this [`gulpfile.js`](https://github.com/kavun/multiplelinters/blob/master/gulpfile.js) file in context of a sample project at [kavun/multiplelinters](https://github.com/kavun/multiplelinters).
 
-    var gulp = require('gulp');
-    var jscs = require('gulp-jscs');
-    var jshint = require('gulp-jshint');
-    var stylish = require('jshint-stylish');
-    var eslint = require('gulp-eslint');
+{% highlight javascript %}
+var gulp = require('gulp');
+var jscs = require('gulp-jscs');
+var jshint = require('gulp-jshint');
+var stylish = require('jshint-stylish');
+var eslint = require('gulp-eslint');
 
-    var files = {
-      js: 'src/*.js'
-    };
+var files = {
+    js: 'src/*.js'
+};
 
-    gulp.task('jscs', function () {
-      return gulp.src(files.js)
+gulp.task('jscs', function () {
+    return gulp.src(files.js)
         .pipe(jscs());
-    });
+});
 
-    gulp.task('jshint', function() {
-      return gulp.src(files.js)
+gulp.task('jshint', function() {
+    return gulp.src(files.js)
         .pipe(jshint())
         .pipe(jshint.reporter(stylish));
-    });
+});
 
-    gulp.task('eslint', function () {
-      return gulp.src(files.js)
+gulp.task('eslint', function () {
+    return gulp.src(files.js)
         .pipe(eslint())
         .pipe(eslint.format());
-    });
+});
 
-    gulp.task('lint', ['jscs', 'jshint', 'eslint']);
-
+gulp.task('lint', ['jscs', 'jshint', 'eslint']);
+{% endhighlight %}

@@ -1,258 +1,257 @@
 <!DOCTYPE html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Kevin Reed</title>
-    <meta name="description" content="blog">
+    <title>{{ site.title }}{% if page.title != blank and page.title != nil %} | {% endif %}{{ page.title }}</title>
+    <meta name="description" content="{{ site.description }}">
     <meta name="viewport" content="width=device-width">
     <meta name="nibbler-site-verification" content="7360d623323d56749101016d91a98d56adea4755" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.1.0/pure-min.css">
     <style>
-      
-      body {
-          font-family: 'Source Sans Pro', Georgia, serif;
-          line-height: 1.5em;
-      }
-      body * {
-        box-sizing: border-box;
-      }
-      code {
-        font-size: 0.9em;
-      }
-      code {
-          font-family: Monaco, Consolas, monospace;
-      }
-      h1 {
-        padding-bottom: 0.75em;
-      }
-      .post-container h1 {
-          margin-bottom: 0;
-          padding-bottom: 0.1em;
-      }
-      .postlist-post {
-          margin-bottom: 2.0em;
-      }
-      h1, h2, h3, h4, h5, h6 {
-          font-family: 'Source Sans Pro', Helvetica, Segoe UI, sans-serif;
-          padding-top: 0.3em;
-          line-height: 1.2em;
-      }
-      .gist-meta a{color:#0088cc !important;text-decoration:none}
-      .gist-meta a:hover{color:#005580 !important}
-      small {
-        color: #777;
-      }
-      .nav {
-        margin: 0.5em 1em 0 1em;
-      }
-      .content {
-        margin: 0.5em 1em 2em 1em;
-      }
-      h2 {
-        border-top: 1px solid #777;
-        margin-bottom: 0.1em;
-        margin-top: 2em;
-        padding-top: 0.75em;
-      }
-      .post-date {
-        display: block;
-        margin-bottom: 1em;
-      }
-      .post-body {
-        word-break: break-word;
-      }
-      code {
-        background-color: #FAFAFA;
-        padding: 0 0.4em;
-        border: 1px solid #DDD;
-        border-radius: 5px;
-      }
-      pre {
-        word-wrap: normal !important;
-      }
-      pre > code {
-        padding: 0.5em 1em;
-        margin: 1em 0;
-        border: 1px solid #DDD;
-        border-left: 5px solid #DDD;
-        white-space: pre;
-        display: block;
-        tab-size: 4;
-        overflow-x: auto;
-        border-radius: 0;
-      }
-
-      a {
-        color: #0088cc;
-        text-decoration: none;
-      }
-
-      a:hover,
-      a:focus {
-        color: #005580;
-        text-decoration: underline;
-      }
-      .top-tag {
-        padding: 0;
-        margin: 0;
-        position: relative;
-        top: -30px;
-      }
-
-      .leftnav {
-        width: 64px;
-        height: 5000px;
-        position: fixed;
-        padding-left: 7px;
-        top: 0;
-        z-index: 9000;
-        left: 0px;
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        -ms-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-        background: #EEE;
-      }
-      .leftnav * {
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        -ms-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-      }
-      .leftnav .logo img {
-        -webkit-transition: all 0.1s ease;
-        -moz-transition: all 0.1s ease;
-        -ms-transition: all 0.1s ease;
-        -o-transition: all 0.1s ease;
-        transition: all 0.1s ease;
-      }
-      .leftnav a {
-        display: block;
-        text-decoration: none;
-      }
-
-      .logo {
-        margin: 15px 0;
-        width: 50px;
-        height: 50px;
-      }
-      .logo img {
-        border-radius: 50%;
-      }
-      .leftnav i {
-        font-size: 57px;
-        display: block;
-        visibility: visible;
-        color: #DDD;
-      }
-      .leftnav i:hover {
-        color: #777;
-      }
-
-      .logo img:hover {
-        box-shadow: 0 0 0 3px #777;
-      }
-
-      @media (max-width: 767px) {
-        .leftnav {
-          height: 64px;
-          width: inherit;
-          position: static;
-          top: auto;
-          left: auto;
-          z-index: auto;
+        body {
+            font-family: -apple-system,
+                ".SFNSDisplay-Bold",
+                "Roboto",
+                "Segoe UI",
+                "Oxygen",
+                "Ubuntu",
+                "Cantarell",
+                "Helvetica Neue",
+                sans-serif;;
+            line-height: 1.5em;
         }
-        .leftnav a, .leftnav i {
-          display: inline-block;
-          vertical-align: middle;
+        
+        body * {
+            box-sizing: border-box;
+        }
+
+        code {
+            background-color: #FAFAFA;
+            padding: 0 0.4em;
+            border: 1px solid #DDD;
+            border-radius: 5px;
+
+            font-size: 0.9em;
+            font-family: 
+                "Hack",
+                "Source Code Pro",
+                Consolas,
+                "Liberation Mono",
+                Menlo,
+                Courier,
+                monospace;
+        }
+
+        pre {
+            word-wrap: normal !important;
+        }
+
+        pre > code {
+            padding: 0.5em 1em;
+            margin: 1em 0;
+            border: 1px solid #DDD;
+            border-left: 5px solid #DDD;
+            white-space: pre;
+            display: block;
+            tab-size: 4;
+            overflow-x: auto;
+            border-radius: 0;
+        }
+
+        a {
+            color: #0088cc;
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:focus {
+            color: #005580;
+            text-decoration: underline;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            padding-top: 0.3em;
+            line-height: 1.2em;
+        }
+
+        h1 {
+            padding-bottom: 0.75em;
+        }
+
+        h2 {
+            border-top: 1px solid #777;
+            margin-bottom: 0.1em;
+            margin-top: 2em;
+            padding-top: 0.75em;
+        }
+
+        small {
+            color: #777;
+        }
+
+        .post-container h1 {
+            margin-bottom: 0;
+            padding-bottom: 0.1em;
+        }
+        
+        .postlist-post {
+            margin-bottom: 2.0em;
+        }
+        
+        .gist-meta a{color:#0088cc !important;text-decoration:none}
+        .gist-meta a:hover{color:#005580 !important}
+        
+        .nav {
+            margin: 0.5em 1em 0 1em;
+        }
+        
+        .content {
+            margin: 0.5em 1em 2em 1em;
+        }
+        
+        .post-date {
+            display: block;
+            margin-bottom: 1em;
+        }
+        
+        .post-body {
+            word-break: break-word;
+        }
+        
+        .top-tag {
+            padding: 0;
+            margin: 0;
+            position: relative;
+            top: -30px;
+        }
+
+        .leftnav {
+            width: 64px;
+            height: 5000px;
+            position: fixed;
+            padding-left: 7px;
+            top: 0;
+            z-index: 9000;
+            left: 0px;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            background: #EEE;
+        }
+        .leftnav * {
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        .leftnav .logo img {
+            -webkit-transition: all 0.1s ease;
+            -moz-transition: all 0.1s ease;
+            -ms-transition: all 0.1s ease;
+            -o-transition: all 0.1s ease;
+            transition: all 0.1s ease;
+        }
+        .leftnav a {
+            display: block;
+            text-decoration: none;
+        }
+
+        .logo {
+            margin: 15px 0;
+            width: 50px;
+            height: 50px;
+        }
+        .logo img {
+            border-radius: 50%;
         }
         .leftnav i {
-          padding-left: 0.1em;
-          vertical-align: bottom;
+            font-size: 57px;
+            display: block;
+            visibility: visible;
+            padding-bottom: 0.2em;
+            color: #DDD;
         }
-        .logo {
-          margin: 7px 0;
+        .leftnav i:hover {
+            color: #777;
         }
-      }
-      @media (min-width: 767px) {
-        .post-container {
-          max-width: 45em;
+
+        .logo img:hover {
+            box-shadow: 0 0 0 3px #777;
         }
-        body {
-          font-size: 1.1em;
+
+        @media (max-width: 767px) {
+            .leftnav {
+                height: auto;
+                width: inherit;
+                position: static;
+                top: auto;
+                left: auto;
+                z-index: auto;
+            }
+            .leftnav a, .leftnav i {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .leftnav i {
+                padding-left: 0.3em;
+                vertical-align: bottom;
+            }
+            .logo {
+                margin: 7px 0;
+            }
         }
-      }
+        @media (min-width: 767px) {
+            .post-container {
+                max-width: 45em;
+            }
+            body {
+                font-size: 1.1em;
+            }
+        }
 
     </style>
-    <script>
-    /*!
-      loadCSS: load a CSS file asynchronously.
-      [c]2015 @scottjehl, Filament Group, Inc.
-      Licensed MIT
-      */
-      !function(e){"use strict";e.loadCSS=function(t,n,r){var i,l=e.document,o=l.createElement("link");if(n)i=n;else{var a=(l.body||l.getElementsByTagName("head")[0]).childNodes;i=a[a.length-1]}var s=l.styleSheets;o.rel="stylesheet",o.href=t,o.media="only x",i.parentNode.insertBefore(o,n?i:i.nextSibling);var f=function(e){for(var t=o.href,n=s.length;n--;)if(s[n].href===t)return e();setTimeout(function(){f(e)})};return o.onloadcssdefined=f,f(function(){o.media=r||"all"}),o}}(this);
-    
-      loadCSS('//fonts.googleapis.com/css?family=Source+Sans+Pro');
-    </script>
-  </head>
-  <body>
-    <!--[if lt IE 7]>
-      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]-->
 
+</head>
+<body>
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class="leftnav">
+    <a class="logo" href="/"><img src="//www.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215?s=50" /></a>
+    <a rel="me" href="https://github.com/kavun" target="_githubkavun"><i class="fa fa-github"></i></a>
+    <a rel="me" href="https://twitter.com/kavun" target="_twitterkavun"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/pub/kevin-reed/48/74/404" target="_linkedinkavun"><i class="fa fa-linkedin"></i></a>
+    <a href="/feed.xml" target="_feed"><i class="fa fa-rss"></i></a>
+</div>
+<div class="pure-g-r content">
+    <div class="pure-u-1-5"></div>
+    <div class="pure-u-3-5">{{ content }}</div>
+    <div class="pure-u-1-5"></div>
+</div>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    <div class="leftnav">
-      <a class="logo" href="/"><img src="//www.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215?s=50" /></a>
-      <a rel="me" href="https://github.com/kavun" target="_githubkavun"><i class="fa fa-github"></i></a>
-      <a rel="me" href="https://twitter.com/kavun" target="_twitterkavun"><i class="fa fa-twitter"></i></a>
-      <a href="https://www.linkedin.com/pub/kevin-reed/48/74/404" target="_linkedinkavun"><i class="fa fa-linkedin"></i></a>
-    </div>
-
-
-
-
-
-    <div class="pure-g-r content">
-      <div class="pure-u-1-5"></div>
-      <div class="pure-u-3-5">{{ content }}</div>
-      <div class="pure-u-1-5"></div>
-    </div>
-
-
-
-    
-    
-    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-    <script>
-      !function () {
-        var codes = document.getElementsByTagName('code');
-        for (var i = 0, l = codes.length; i < l; i++) {
-          var code = codes[i];
-          if (code.parentNode.nodeName.toLowerCase() === 'pre') {
-            code.className = 'prettyprint';
-          }
-        }
-      }();
-    </script>
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', '{{ site.analytics.google.tracking_id }}', 'auto');
-  ga('send', 'pageview');
-
+    ga('create', '{{ site.analytics.google.tracking_id }}', 'auto');
+    ga('send', 'pageview');
 </script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>
-        $('.leftnav').hover(function () { $(this).addClass('active'); } , function () { $(this).removeClass('active'); });
-    </script>
-    <script src="//cdn.rawgit.com/cshold/social-sharing-buttons/master/social-buttons.js"></script>
-    <script>
-      loadCSS('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
-    </script>
-  </body>
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="//cdn.rawgit.com/cshold/social-sharing-buttons/master/social-buttons.js"></script>
+<script>
+    /*!
+     * loadCSS: load a CSS file asynchronously.
+     * [c]2015 @scottjehl, Filament Group, Inc.
+     * Licensed MIT
+     */
+    !function(e){"use strict";e.loadCSS=function(t,n,r){var i,l=e.document,o=l.createElement("link");if(n)i=n;else{var a=(l.body||l.getElementsByTagName("head")[0]).childNodes;i=a[a.length-1]}var s=l.styleSheets;o.rel="stylesheet",o.href=t,o.media="only x",i.parentNode.insertBefore(o,n?i:i.nextSibling);var f=function(e){for(var t=o.href,n=s.length;n--;)if(s[n].href===t)return e();setTimeout(function(){f(e)})};return o.onloadcssdefined=f,f(function(){o.media=r||"all"}),o}}(this);
+
+    loadCSS('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
+    loadCSS('/assets/syntax.css');
+</script>
+</body>
 </html>

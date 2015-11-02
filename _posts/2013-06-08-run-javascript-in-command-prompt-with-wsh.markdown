@@ -13,23 +13,25 @@ When one initially happens upon Node.js, there is something awesome about being 
 * Execute the following script in command prompt with `cscript WSHRepl.js` and type in as many js one-liners as suits your fancy.
 
 Behold the Windows Script Host REPL
- 
-	function print(text) {
-		WScript.Echo('> ' + text);
-	}
-	 
-	var stdin  = WScript.StdIn;
-	var stdout = WScript.StdOut;
-	var input;
-	 
-	do {
-		var input = stdin.ReadLine();
-		try { 
-			print(eval(input));
-		} catch (e) { 
-			print(e.name + ': ' + e.message);
-		}
-	} while (input != 'exit');
+
+{% highlight javascript %}
+function print(text) {
+    WScript.Echo('> ' + text);
+}
+
+var stdin  = WScript.StdIn;
+var stdout = WScript.StdOut;
+var input;
+
+do {
+    var input = stdin.ReadLine();
+    try { 
+        print(eval(input));
+    } catch (e) { 
+        print(e.name + ': ' + e.message);
+    }
+} while (input != 'exit');
+{% endhighlight %}
 
 This obviously isn't very useful other than maybe fiddling with Microsoft's implementation of ECMAScript. I used the [WSH Reference][2] to find the `WScript.StdOut` and `WScript.StdIn` objects.
 
