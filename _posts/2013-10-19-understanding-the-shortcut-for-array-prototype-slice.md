@@ -59,9 +59,9 @@ boundReturner();
 So now that we can bind functions, how can we use this to create a shortcut for `Array.prototype.slice`? Well, in the example `var slice = Function.prototype.call.bind(Array.prototype.slice);`, we see that `call` is the function that is receiving the binding, and `slice` is the "object" that is bound as the `this` object for `call`. This may be confusing because `slice` is a function, but is still being bound as the `this` object. The binding is necessary because as you see in the first example of copying `arguments` to an array, `call` is being called **as a method of slice**. `Array.prototype.slice.call(arguments)` will make `slice` the `this` object for `call`. It the same for any method in javascript. The calling object is the `this` object for the method being called. So to create the bound slice shortcut function with our simple `bind` function we need to bind `slice` to `call`.
 
 {% highlight javascript %}
-    var slice = bind(Function.prototype.call, Array.protoype.slice);
-    // or 
-    var slice = bind(function () {}.call, [].slice);
+var slice = bind(Function.prototype.call, Array.protoype.slice);
+// or 
+var slice = bind(function () {}.call, [].slice);
 {% endhighlight %}
 
 And then to use it
