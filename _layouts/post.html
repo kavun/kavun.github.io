@@ -6,9 +6,13 @@ layout: layout
     <h1>{{ page.title }}</h1>
     <small class="post-date">{{ page.date | date: "%B %e, %Y" }}</small>
     
+
+
+    <div class="post-body">{{ content }}</div>
+
     {% if page.comments %}
         <link rel="stylesheet" href="https://cdn.rawgit.com/cshold/social-sharing-buttons/master/social-buttons.css" />
-        <div class="social-sharing is-clean" data-permalink="https://kevinareed.com{{ page.url }}">
+        <div class="margintop3 social-sharing is-clean" data-permalink="https://kevinareed.com{{ page.url }}">
             <a target="_blank" href="http://www.facebook.com/sharer.php?u=https://kevinareed.com{{ page.url }}" class="share-facebook">
                 <span class="icon icon-facebook" aria-hidden="true"></span>
                 <span class="share-title">Share</span>
@@ -26,5 +30,24 @@ layout: layout
         </div>
     {% endif %}
 
-    <div class="post-body">{{ content }}</div>
+    {% if page.comments %}
+    <div class="margintop" id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = 'https://kevinareed.com{{ page.url }}';
+            this.page.identifier = 'https://kevinareed.com{{ page.url }}';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//kavun.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>
+        Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+    </noscript>
+    {% endif %}
+
+
 </div>
