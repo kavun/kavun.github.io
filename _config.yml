@@ -3,7 +3,7 @@ highlighter: rouge
 title: Kevin Reed
 
 url: https://kevinareed.com
-description: Full stack software developer. These are my thoughts on Javascript, .NET, DevOps, and other web development topics.
+description: Full stack web developer. These are my thoughts on Javascript, .NET, DevOps, and other web development topics.
 permalink: /:year/:month/:day/:title/
 
 author:
