@@ -21,11 +21,11 @@ The general idea of "blue green deployment" is that there is an entry point (loa
 
 Start with a basic static site called `alwaysup`. Keep in mind that this site could be any IIS hosted application ([ASP.NET](http://www.asp.net/), [HttpPlatformHandler](http://www.hanselman.com/blog/AnnouncingRunningRubyOnRailsOnIIS8OrAnythingElseReallyWithTheNewHttpPlatformHandler.aspx), [iisnode](https://github.com/tjanczuk/iisnode), [PHP](http://php.iis.net/), etc). A static site will be enough for this example. There will need to be two instances of `alwaysup` in IIS, so duplicate the folder that `alwaysup` lives in to create `/alwaysup-green` and `/alwaysup-blue`. The application files are simple. Just some `index.html` files to indicate which application is being hit.
 
-<img alt="Blue green deployment in IIS - application files" data-src="/assets/zero-downtime-files.png" class="lazyload" />
+<img alt="Blue green deployment in IIS - application files" src="/assets/zero-downtime-files.png" />
 
 Create corresponding IIS sites for each application and name them `alwaysup-green` and `alwaysup-blue`. These sites need to be bound to a unique port that is not port `80`, like `8001` and `8002`.
 
-<img alt="Blue green deployment in IIS - IIS Sites" data-src="/assets/zero-downtime-sites.png" class="lazyload" />
+<img alt="Blue green deployment in IIS - IIS Sites" src="/assets/zero-downtime-sites.png" />
 
 Also create some host entries for each site so that when the Server Farm is created later each unique host name will act as a server address in the Server Farm. Use `alwaysup-blue` and `alwaysup-green` for the host names, and also add a host name for the server farm that will act as the entry point for the application `alwaysup`.
 
@@ -56,25 +56,25 @@ This is the complete configuration for the `alwaysup-blue` and `alwaysup-green` 
 
 Next create a Server Farm in IIS to route traffic between the two sites. Add a Server Farm named `alwaysup`.
 
-<img alt="Blue green deployment in IIS - Server Farm" data-src="/assets/zero-downtime-farm.png" class="lazyload" />
+<img alt="Blue green deployment in IIS - Server Farm" src="/assets/zero-downtime-farm.png" />
 
 Next add a server for each host name binding of the `alwaysup-green:8001` and `alwaysup-blue:8002` sites.
 
-<img alt="Blue green deployment in IIS - Server Farm Server" data-src="/assets/zero-downtime-farm-server.png" class="lazyload" />
+<img alt="Blue green deployment in IIS - Server Farm Server" src="/assets/zero-downtime-farm-server.png" />
 
 After creating the servers, IIS will ask prompt to create a URL rewrite rule to route all incoming requests to this server farm automatically. Select "No" because a rule will be created later manually with the URL Rewrite module.
 
 Next add some health checks to the server farm. This is how Application Request Routing will know which site is "up" to route requests to. A simple way to do this is to add an `up.html` file in the root of `alwaysup-blue` and `alwaysup-green` with the text "up" in one, and "down" in the other.
 
-<img alt="Blue green deployment in IIS - health check files" data-src="/assets/zero-downtime-health-files.png" class="lazyload" />
+<img alt="Blue green deployment in IIS - health check files" src="/assets/zero-downtime-health-files.png" />
 
 Then add a health check to the `alwaysup` Server Farm that makes sure the response received from `/up.html` contains the text "up". Set the polling interval to be quick so that when changes are made to the health check files very little wait time is required for the health checks to fail or pass. Notice also that the `alwaysup` HOSTS entry is used here.
 
-<img alt="Blue green deployment in IIS - health check" data-src="/assets/zero-downtime-health.png" class="lazyload" />
+<img alt="Blue green deployment in IIS - health check" src="/assets/zero-downtime-health.png" />
 
 The "Monitoring and Management" page of the Server Farm shows that one of the Server Farm servers is marked as unhealthy - which is to be expected.
 
-<img alt="Blue green deployment in IIS - health monitor" data-src="/assets/zero-downtime-health-monitor.png" class="lazyload" />
+<img alt="Blue green deployment in IIS - health monitor" src="/assets/zero-downtime-health-monitor.png" />
 
 This is the complete configuration for the `alwaysup` Server Farm.
 
@@ -107,15 +107,15 @@ Now route the actual traffic to our Server Farm `alwaysup`. To do this use the U
 
 Test everything done so far by making a request to `http://alwaysup/`.
 
-<img alt="Blue green deployment in IIS - blue site up" data-src="/assets/zero-downtime-blue-up.png" class="lazyload" />
+<img alt="Blue green deployment in IIS - blue site up" src="/assets/zero-downtime-blue-up.png" />
 
 Make one of the sites fail the health test and the other pass and see the site content change.
 
-<img alt="Blue green deployment in IIS - green site up" data-src="/assets/zero-downtime-green-up.png" class="lazyload" />
+<img alt="Blue green deployment in IIS - green site up" src="/assets/zero-downtime-green-up.png" />
 
 At this point any deployment strategy could be used to deploy to a site in IIS, except now it is necessary to check which site is down and deploy to that one instead of the one that is up. Deployment can happen via [WebDeploy/`msdeploy`](http://www.iis.net/downloads/microsoft/web-deploy), FTP, Dropbox [(yes - some people deploy with Dropbox)](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/#dropbox), an [Octopus Deploy Tentacle](http://docs.octopusdeploy.com/display/OD/Installing+Tentacles), etc. *After new code has been deployed to the site that is down, the down site needs to be warmed up before its health check can be changed to a passing state.* To do this, make a request to the site manually. In this example, a request would be made to `http://alwaysup-blue:8001` to initiate a warm up in IIS. Then edit the health check file to make it pass the health check by changing `down` to `up`. Then once the server's health status is "Healthy", the initial site that was up can safely be brought down. *All of this is done without introducing any downtime.*
 
-<img alt="yes" data-src="//www.reactiongifs.com/r/dstfp.gif" class="lazyload" />
+<img alt="yes" src="//www.reactiongifs.com/r/dstfp.gif" />
 
 No more 4:30am deployments!
 
@@ -145,7 +145,7 @@ Write-Host "$($upPath) is up"
 Write-Host "$($downPath) is down"
 {% endhighlight %}
 
-<img alt="Blue green deployment in IIS - PowerShell health check" data-src="/assets/zero-downtime-webfarm-health-files-ps1.png" class="lazyload" />
+<img alt="Blue green deployment in IIS - PowerShell health check" src="/assets/zero-downtime-webfarm-health-files-ps1.png" />
 
 We can also check the status of the Server Farm itself in IIS through [`Microsoft.Web.Administration.ServerManager`](https://msdn.microsoft.com/en-us/library/microsoft.web.administration.servermanager(v=vs.90).aspx).
 
@@ -193,7 +193,7 @@ Write-Host "$($healthyAddress) is up"
 Write-Host "$($unhealthyAddress) is down"
 {% endhighlight %}
 
-<img alt="Blue green deployment in IIS - PowerShell health check" data-src="/assets/zero-downtime-webfarm-health-ps1.png" class="lazyload" />
+<img alt="Blue green deployment in IIS - PowerShell health check" src="/assets/zero-downtime-webfarm-health-ps1.png" />
 
 ### Deploy!
 
@@ -223,7 +223,7 @@ $minTime = 400
 }
 {% endhighlight %}
 
-<img alt="Blue green deployment in IIS - PowerShell warm up" data-src="/assets/zero-downtime-warmup-ps1.png" class="lazyload" />
+<img alt="Blue green deployment in IIS - PowerShell warm up" src="/assets/zero-downtime-warmup-ps1.png" />
 
 Then change the content of the `up.html` file to pass the health check, wait a couple of seconds and then bring the up site down. Bringing the up site down can be done with or without draining the server in the Server Farm first.
 
@@ -276,7 +276,7 @@ if ($res.StatusCode -eq 200) {
 }
 {% endhighlight %}
 
-<img alt="Blue green deployment in IIS - PowerShell blue green switch" data-src="/assets/zero-downtime-bluegreenswitch-ps1.png" class="lazyload" />
+<img alt="Blue green deployment in IIS - PowerShell blue green switch" src="/assets/zero-downtime-bluegreenswitch-ps1.png" />
 
 To disallow new connections on the server that is up before bringing it down, we can call the `SetState` method with the following values.
 
