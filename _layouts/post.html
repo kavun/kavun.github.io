@@ -5,29 +5,25 @@ layout: layout
 <div class="post-container">
     <h1>{{ page.title }}</h1>
     <small class="post-date">{{ page.date | date: "%B %e, %Y" }}</small>
-
-
-
     <div class="post-body">{{ content }}</div>
 
     {% if page.comments %}
-    <div class="margintop" id="disqus_thread"></div>
-    <script>
-        var disqus_config = function () {
-            this.page.url = 'https://kevinareed.com{{ page.url }}';
-            this.page.identifier = 'https://kevinareed.com{{ page.url }}';
-        };
-        (function() {
-            var d = document, s = d.createElement('script');
-            s.src = '//kavun.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>
-        Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
-    </noscript>
+        <div class="margintop" id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = 'https://kevinareed.com{{ page.url }}';
+                this.page.identifier = 'https://kevinareed.com{{ page.url }}';
+            };
+            (function() {
+                var d = document, s = d.createElement('script');
+                s.src = '//kavun.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>
+            Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+        </noscript>
     {% endif %}
-
 
 </div>

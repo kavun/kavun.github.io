@@ -1,10 +1,10 @@
 ---
 comments: true
-date: 2013-09-27
-layout: post
-slug: quick-javascript-inheritance
-title: Quick Javascript Inheritance
-summary: 'Using jQuery.extend to create quick and dirty inheritance.'
+date: "2013-09-27"
+layout: "post"
+slug: "quick-javascript-inheritance"
+title: "Quick Javascript Inheritance"
+summary: "Using jQuery.extend to create quick and dirty inheritance."
 ---
 
 Sometimes its best to keep things quick.

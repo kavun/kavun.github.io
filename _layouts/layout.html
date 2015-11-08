@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{{ site.title }}{% if page.title != blank and page.title != nil %} | {% endif %}{{ page.title }}</title>
-    <meta name="description" content="{{ site.description }}">
+    <meta name="description" content="{% if page.summary != blank and page.summary != nil %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
         pre, figure, code { margin: 0; }
         img {
@@ -28,6 +30,7 @@
 
         body {
             line-height: 1.5em;
+            color: #222;
         }
 
         body * {
@@ -51,7 +54,6 @@
         }
 
         pre {
-            word-wrap: normal !important;
             background-color: #FAFAFA;
         }
 
@@ -60,12 +62,24 @@
             border: 0;
             border-radius: 0;
             border-left: 5px solid #f2f2f2;
-            white-space: pre;
-            display: block;
+            display: inline-block;
             tab-size: 4;
-            overflow-x: auto;
             border-radius: 0;
             text-align: left;
+        }
+
+        pre {
+            display: block;
+            width: auto;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            white-space: pre;
+            word-wrap: normal;
+        }
+
+        pre code {
+            white-space: inherit;
         }
 
         a {
@@ -190,8 +204,10 @@
         .logo img:hover {
             box-shadow: 0 0 0 3px #777;
         }
-        .hl-yellow {
+
+        em {
             background-color: rgb(250, 250, 210);
+            font-style: normal;
         }
 
         .content, .leftnav {
@@ -229,10 +245,65 @@
         }
 
         .margintop {
-            margin-top: 1em;
-        }
-        .margintop3 {
             margin-top: 3em;
+        }
+
+
+        @media print {
+            *,
+            *:before,
+            *:after,
+            *:first-letter,
+            *:first-line {
+                background: transparent !important;
+                color: #000 !important;
+                box-shadow: none !important;
+                text-shadow: none !important;
+            }
+
+            a,
+            a:visited {
+                text-decoration: underline;
+            }
+
+            abbr[title]:after {
+                content: " (" attr(title) ")";
+            }
+
+            a[href^="#"]:after,
+            a[href^="javascript:"]:after {
+                content: "";
+            }
+
+            pre,
+            blockquote {
+                page-break-inside: avoid;
+            }
+
+            thead {
+                display: table-header-group;
+            }
+
+            tr,
+            img {
+                page-break-inside: avoid;
+            }
+
+            img {
+                max-width: 100% !important;
+            }
+
+            p,
+            h2,
+            h3 {
+                orphans: 3;
+                widows: 3;
+            }
+
+            h2,
+            h3 {
+                page-break-after: avoid;
+            }
         }
 
     </style>
@@ -257,10 +328,6 @@
 
 </head>
 <body>
-
-    <!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
     <div class="leftnav">
         <a class="logo" href="/"><img class="lazyload" data-src="//www.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215?s=100" /></a>

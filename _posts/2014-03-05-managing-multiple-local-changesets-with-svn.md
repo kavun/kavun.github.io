@@ -1,10 +1,10 @@
 ---
 comments: true
-date: 2014-03-05
-layout: post
-slug: managing-multiple-local-changesets-with-svn
-title: Managing multiple local changesets with SVN
-summary: 'Local branching is very easy with Git, but with Subversion some magic is needed to manage local changesets.'
+date: "2014-03-05"
+layout: "post"
+slug: "managing-multiple-local-changesets-with-svn"
+title: "Managing Multiple Local Changesets with SVN"
+summary: "Local branching is very easy with Git, but with Subversion some magic is needed to manage local changesets."
 ---
 
 Local branching is very easy with Git, but with Subversion (SVN) some magic is needed to manage complex local working directories. When working on more than one feature or bug within one SVN branch, the changes can quickly become hard to manage and keep separate. If the change ends up being in the same file as another feature's change, a real problem occurs when trying to commit the code separately. There are options to make sure changes don't encroach on each other, but none of them are as simple and lightweight as local branching with Git. Since SVN does not have the concept of a pull request, code reviews might be done pre-commit, forcing the developer to keep local changes in a working directory until the review is complete and changes can be committed. In this situation, the following solutions for managing  multiple local changesets might come in handy.
@@ -40,7 +40,7 @@ When work is complete in the feature branch, merge any revisions that are not pr
     > svn switch http://svn/branches/kevin/feature1
     > svn merge http://svn/trunk
     > svn commit -m "merge trunk into kevin/feature1"
-    
+
     > svn switch http://svn/trunk
     > svn merge --reintegrate http://svn/branches/kevin/feature1
     > svn commit -m "merge feature1 back into trunk"
@@ -67,7 +67,7 @@ In a single working directory, files with local modifications can be grouped und
     > svn changelist my-first-changelist module1.js module2.js
     A [my-first-changelist] module1.js
     A [my-first-changelist] module2.js
-    
+
     > svn status
     --- Changelist 'my-first-changelist':
     M       module1.js
@@ -95,7 +95,7 @@ Start with a clean SVN working directory, then initialize and empty Git repo in 
 
 Now you will see a `.git` folder alongside  your `.svn` folder. Two source controls in one directory!
 
-#### Create a branch 
+#### Create a branch
 Create a branch for a feature you will work on and then checkout that branch.
 
     > git branch feature1

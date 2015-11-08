@@ -1,10 +1,10 @@
 ---
 comments: true
-date: 2014-10-28
-layout: post
-slug: how-to-start-linting-Javascript
-title: How to Start Linting Javascript
-summary: There are better ways to validate Javascript than to watch it fail when it runs.
+date: "2014-10-28"
+layout: "post"
+slug: "how-to-start-linting-javascript"
+title: "How to Start Linting Javascript"
+summary: "There are better ways to validate Javascript than to watch it fail when it runs."
 ---
 
 Javascript is wild. The popular and incredibly accommodating language is never
