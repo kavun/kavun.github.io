@@ -309,7 +309,7 @@ After setting the state to `Drain` it would be possible to loop until the server
 
 If SSL needs to be terminated in IIS it will now have to be done at the Server Farm. To do this a new URL Rewrite rule has to be created to match port `443`. Make sure that the certificate to be used is bound to at least 1 site in IIS, or use IIS's centralized certificates.
 
-{% highlight powershell %}
+{% highlight xml %}
 <rule name="alwaysup HTTPS" stopProcessing="true">
     <match url=".*" />
     <conditions>
