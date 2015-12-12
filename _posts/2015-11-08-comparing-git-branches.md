@@ -5,7 +5,7 @@ layout: "post"
 slug: "comparing-git-branches"
 title: "Comparing Git Branches"
 summary: "Git commands to compare branches before merges or deployments."
-tags: ["DevOps", "git"]
+tags: ["DevOps", "Git"]
 ---
 
 The majority of the time I manage Git repositories in [SourceTree](https://www.sourcetreeapp.com/) because wrangling lots of Git projects on the command line can get hairy. The visibility of statuses across mutiple local repositories that a GUI like SourceTree provides is not available on the command line. However, some things are often simpler and quicker on the command line than in GUI Git clients. One of those things is comparing branches.
