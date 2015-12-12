@@ -5,6 +5,7 @@ layout: "post"
 slug: "how-to-start-linting-javascript"
 title: "How to Start Linting Javascript"
 summary: "There are better ways to validate Javascript than to watch it fail when it runs."
+tags: ["Javascript"]
 ---
 
 Javascript is wild. The popular and incredibly accommodating language is never

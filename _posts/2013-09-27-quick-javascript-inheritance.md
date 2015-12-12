@@ -5,6 +5,7 @@ layout: "post"
 slug: "quick-javascript-inheritance"
 title: "Quick Javascript Inheritance"
 summary: "Using jQuery.extend to create quick and dirty inheritance."
+tags: ["Javascript"]
 ---
 
 Sometimes its best to keep things quick.

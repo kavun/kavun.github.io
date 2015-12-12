@@ -5,7 +5,7 @@ layout: "post"
 slug: "how-to-deploy-anything-in-iis-with-zero-downtime-on-a-single-server"
 title: "How to Deploy Anything in IIS with Zero Downtime on a Single Server"
 summary: "Utilize the blue green deployment pattern in IIS with Application Request Routing to acheive zero downtime deployments of any IIS hosted application on a single server."
-tags: ["DevOps", "IIS"]
+tags: ["DevOps", "IIS", "PowerShell"]
 ---
 
 No one likes downtime. It is stressful for managers, operations, and developers. Downtime is frustrating and confusing for users of a site, whether or not the "down for maintenance" page is live. Most of the popular deployment strategies for ASP.NET apps hosted in IIS do not even try to deploy without downtime. Any change to `Web.config` or `.dll` files on a live site can cause significant downtime (I've seen 5-10 minutes for large apps). There is a better way. *It is possible to achieve zero downtime with the ["blue green deployment" strategy](http://martinfowler.com/bliki/BlueGreenDeployment.html) in IIS using Application Request Routing, and URL Rewrite.* Let's get started.

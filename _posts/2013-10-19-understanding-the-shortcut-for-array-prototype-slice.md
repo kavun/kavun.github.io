@@ -5,6 +5,7 @@ layout: "post"
 slug: "understanding-the-shortcut-for-array-prototype-slice"
 title: "Understanding the Shortcut for Array.prototype.slice"
 summary: "Wrapping my head around Function.prototype.call.bind(Array.prototype.slice)"
+tags: ["Javascript"]
 ---
 There are [many scenarios](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments#Examples) when accessing the `arguments` object as an array can be useful. Once the `arguments` object is copied to an array, the `Array.prototype` methods like `[].map` or `[].filter` can be used directly. To do so we can simply call `Array.prototype.slice` with `arguments` as the `this` object and pass no arguments, which will create a shallow copy of the `arguments` object as an array.
 

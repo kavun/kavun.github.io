@@ -5,6 +5,7 @@ layout: "post"
 slug: "why-I-wrote-a-javascript-style-guide"
 title: "Why I Wrote a Javascript Style Guide"
 summary: "My reasoning for writing my own style guide instead of choosing to use one of the many excellent style guides that already exist."
+tags: ["Javascript"]
 ---
 
 If you are looking for a solid style guide, this is probably not where you should be. There are a myriad of style guides that have had large teams working under their guidelines and seasoned professionals contribute to them. If you are searching for one of the prior style guides, they are easy to find. I am not a seasoned professional, nor do I work on a large team of javascript developers. However, I am becoming increasingly more passionate about javascript and writing consistent, clean javascript. Messy and inconsistent javascript is easy to write - the langauge is privy of this. Working in a large code base, it's easy to find code like this.
