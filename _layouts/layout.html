@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{{ site.title }}{% if page.title != blank and page.title != nil %} | {% endif %}{{ page.title }}</title>
+    <title>{{ page.title }}{% if page.title != blank and page.title != nil %} | {% endif %}{{ site.title }}</title>
     <meta name="description" content="{% if page.summary != blank and page.summary != nil %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
