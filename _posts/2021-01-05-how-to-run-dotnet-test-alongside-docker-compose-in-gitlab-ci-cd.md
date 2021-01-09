@@ -41,6 +41,8 @@ public class SomeBrowserTests
         var title = driver.Title;
 
         Assert.Contains("Google", title);
+
+        driver.Quit();
     }
 }
 {% endhighlight %}
