@@ -1,6 +1,6 @@
 ---
 comments: true
-date: "2021-01-05"
+date: "2021-04-14"
 layout: "post"
 slug: "creating-a-command-based-cli-in-powershell"
 title: "Creating a Command-Based CLI in Powershell"
