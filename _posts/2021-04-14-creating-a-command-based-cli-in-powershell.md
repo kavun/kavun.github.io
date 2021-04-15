@@ -19,14 +19,14 @@ Lately, I've become obsessed with automating local development environment tasks
 
 Let's build a script with these commands:
 
-{% highlight powershell %}
+```
 .\cli.ps1 up
 .\cli.ps1 down
 .\cli.ps1 build
 .\cli.ps1 test
 .\cli.ps1 migrate <name>
 .\cli.ps1 ip
-{% endhighlight %}
+```
 
 ## Validate the commands
 
