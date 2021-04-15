@@ -3,16 +3,16 @@ comments: true
 date: "2021-04-14"
 layout: "post"
 slug: "creating-a-command-based-cli-in-powershell"
-title: "Creating a Command-Based CLI in Powershell"
+title: "Creating a Command-Based CLI in PowerShell"
 summary: "How to create a cross platform CLI using simple powershell scripts."
-tags: ["DevOps", "Powershell"]
+tags: ["DevOps", "PowerShell"]
 ---
 
-Lately, I've become obsessed with automating local development environment tasks, especially when it comes to onboarding, bootstrapping, and managing local machine environments for various projects. When something like a web application starts to add external dependencies like services running in docker-compose, quickly that project's onboarding steps can get quite lengthy. Managing issues around onboarding steps can become a pain, and troubleshooting them, especially when those tasks are expected to be run across operating systems, can be very difficult and time consuming. Powershell Core, being cross-platform and JIT runnable, offers a friendly scripting experience for creating command-based command line interfaces for whatever application you need.
+Lately, I've become obsessed with automating local development environment tasks, especially when it comes to onboarding, bootstrapping, and managing local machine environments for various projects. When something like a web application starts to add external dependencies like services running in docker-compose, quickly that project's onboarding steps can get quite lengthy. Managing issues around onboarding steps can become a pain, and troubleshooting them, especially when those tasks are expected to be run across operating systems, can be very difficult and time consuming. PowerShell Core, being cross-platform and JIT runnable, offers a friendly scripting experience for creating command-based command line interfaces for whatever application you need.
 
 ## Prerequisites
 
-- Install Powershell Core on your operating system of choice: [https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)
+- Install PowerShell Core on your operating system of choice: [https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)
 - All the examples can also be found here. Download/clone this repo to follow along with each step: [https://github.com/kavun/ps-cli](https://github.com/kavun/ps-cli)
 
 ## Goal
@@ -30,7 +30,7 @@ Let's build a script with these commands:
 
 ## Validate the commands
 
-To enable these ad-hoc command names (without the default `-` prefix that Powershell params normally require), we can use a combination of `ValidateSet` and `Parameter(Position=0)` attributes on the script's first `param`.
+To enable these ad-hoc command names (without the default `-` prefix that PowerShell params normally require), we can use a combination of `ValidateSet` and `Parameter(Position=0)` attributes on the script's first `param`.
 
 **[1-validate.ps1](https://github.com/kavun/ps-cli/blob/main/1-validate.ps1)**
 ```ps1
@@ -86,7 +86,7 @@ Now, when a command is passed, the associated function is run.
 
 ## Support `Get-Help`
 
-This is great, but it's not immediately known what commands are available without opening up the `.ps1` file and reading it. We could add a command `help` and then spit out some help content with `Write-Host "help string"`, but there's a better way. Powershell scripts can hook into the `Get-Help` command to provide structured help documentation for the whole script. Let's do both!
+This is great, but it's not immediately known what commands are available without opening up the `.ps1` file and reading it. We could add a command `help` and then spit out some help content with `Write-Host "help string"`, but there's a better way. PowerShell scripts can hook into the `Get-Help` command to provide structured help documentation for the whole script. Let's do both!
 
 **[3-help.ps1](https://github.com/kavun/ps-cli/blob/main/3-help.ps1)**
 ```ps1
