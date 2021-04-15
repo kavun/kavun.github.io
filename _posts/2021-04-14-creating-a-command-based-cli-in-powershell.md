@@ -19,21 +19,21 @@ Lately, I've become obsessed with automating local development environment tasks
 
 Let's build a script with these commands:
 
-```ps1
+{% highlight powershell %}
 .\cli.ps1 up
 .\cli.ps1 down
 .\cli.ps1 build
 .\cli.ps1 test
 .\cli.ps1 migrate <name>
 .\cli.ps1 ip
-```
+{% endhighlight %}
 
 ## Validate the commands
 
 To enable these ad-hoc command names (without the default `-` prefix that PowerShell params normally require), we can use a combination of `ValidateSet` and `Parameter(Position=0)` attributes on the script's first `param`.
 
 **[1-validate.ps1](https://github.com/kavun/ps-cli/blob/main/1-validate.ps1)**
-```ps1
+{% highlight powershell %}
 param(
   [Parameter(Position=0, Mandatory=$True)]
   [ValidateSet("up", "down", "build", "test", "migrate", "ip")]
@@ -41,7 +41,7 @@ param(
 )
 
 Write-Host $Command
-```
+{% endhighlight %}
 
 This ensures that when you pass an incorrect command or if you exclude the command, you get a detailed error message.
 
@@ -52,7 +52,7 @@ This ensures that when you pass an incorrect command or if you exclude the comma
 Now we need to handle the commands and run functions for each one. For this, we'll use a `switch`.
 
 **[2-handle.ps1](https://github.com/kavun/ps-cli/blob/main/2-handle.ps1)**
-```ps1
+{% highlight powershell %}
 param(
   [Parameter(Position=0, Mandatory=$True)]
   [ValidateSet("up", "down", "build", "test", "ip")]
@@ -78,7 +78,7 @@ switch ($Command) {
     "test"  { Command-Test }
     "ip"    { Command-Ip }
 }
-```
+{% endhighlight %}
 
 Now, when a command is passed, the associated function is run.
 
@@ -89,7 +89,7 @@ Now, when a command is passed, the associated function is run.
 This is great, but it's not immediately known what commands are available without opening up the `.ps1` file and reading it. We could add a command `help` and then spit out some help content with `Write-Host "help string"`, but there's a better way. PowerShell scripts can hook into the `Get-Help` command to provide structured help documentation for the whole script. Let's do both!
 
 **[3-help.ps1](https://github.com/kavun/ps-cli/blob/main/3-help.ps1)**
-```ps1
+{% highlight powershell %}
 <#
 .SYNOPSIS
 This script is an example of how any .ps1 script can provide content to `Get-Help`.
@@ -140,7 +140,7 @@ switch ($Command) {
     "ip"    { Command-Ip }
     "help"  { Command-Help }
 }
-```
+{% endhighlight %}
 
 Let's look at what we changed:
 1. Added `<# #>` help content at the top of the file. And added `.SYNOPSIS` and `.DESCRIPTION` sections.
@@ -165,7 +165,7 @@ Get-Help .\3-help.ps1
 What we have is great for simple one-liners, but eventually we'll want to pass params to the commands and also support nested commands.
 
 **[4-nest.ps1](https://github.com/kavun/ps-cli/blob/main/4-nest.ps1)**
-```ps1
+{% highlight powershell %}
 <#
 .SYNOPSIS
 An example of how to next commands.
@@ -240,7 +240,8 @@ switch ($Command) {
     "speak" { Command-Speak $Rest }
     "logs"  { Command-Logs $Rest }
 }
-```
+{% endhighlight %}
+
 Let's look at what we did:
 
 - We used `ValueFromRemainingArguments` to capture any trailing params in the `$Rest` param and passed those along to the inner functions.
