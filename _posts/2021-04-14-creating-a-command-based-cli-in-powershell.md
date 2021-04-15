@@ -8,7 +8,12 @@ summary: "How to create a cross platform CLI using simple powershell scripts."
 tags: ["DevOps", "Powershell"]
 ---
 
-Lately, I've become obsessed with automating local development environment tasks, especially when it comes to onboarding, bootstrapping, and managing my local machine's environments for various projects. When something like a web application starts to add environment dependencies like docker-compose, quickly that project's onboarding steps can get quite lengthy. Managing issues around onboarding steps can become a pain, and troubleshooting them, especially when those tasks are expected to be run across operating systems, can be very difficult and time consuming. Powershell Core, being cross-platform and JIT runnable, offers a friendly scripting experience for creating command-based command line interfaces for whatever application you need.
+Lately, I've become obsessed with automating local development environment tasks, especially when it comes to onboarding, bootstrapping, and managing local machine environments for various projects. When something like a web application starts to add external dependencies like services running in docker-compose, quickly that project's onboarding steps can get quite lengthy. Managing issues around onboarding steps can become a pain, and troubleshooting them, especially when those tasks are expected to be run across operating systems, can be very difficult and time consuming. Powershell Core, being cross-platform and JIT runnable, offers a friendly scripting experience for creating command-based command line interfaces for whatever application you need.
+
+## Prerequisites
+
+- Install Powershell Core on your operating system of choice: [https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)
+- All the examples can also be found here. Download/clone this repo to follow along with each step: [https://github.com/kavun/ps-cli](https://github.com/kavun/ps-cli)
 
 ## Goal
 
@@ -23,12 +28,11 @@ Let's build a script with these commands:
 .\cli.ps1 ip
 ```
 
-All the examples can also be found here: https://github.com/kavun/ps-cli
-
 ## Validate the commands
 
-To enable these ad-hoc command names (without the default '`-`' prefixes the Powershell params normally require), we can use a combination of `ValidateSet` and `Parameter(Position=0)` attributes on the script's first `param`.
+To enable these ad-hoc command names (without the default `-` prefix that Powershell params normally require), we can use a combination of `ValidateSet` and `Parameter(Position=0)` attributes on the script's first `param`.
 
+**[1-validate.ps1](https://github.com/kavun/ps-cli/blob/main/1-validate.ps1)**
 ```ps1
 param(
   [Parameter(Position=0, Mandatory=$True)]
@@ -47,6 +51,7 @@ This ensures that when you pass an incorrect command or if you exclude the comma
 
 Now we need to handle the commands and run functions for each one. For this, we'll use a `switch`.
 
+**[2-handle.ps1](https://github.com/kavun/ps-cli/blob/main/2-handle.ps1)**
 ```ps1
 param(
   [Parameter(Position=0, Mandatory=$True)]
@@ -81,8 +86,9 @@ Now, when a command is passed, the associated function is run.
 
 ## Support `Get-Help`
 
-This is great so far, but it's not immediately known what commands are available without opening up the `.ps1` file and reading it. We could add a command `help` and then spit out some help content with `Write-Host "help string"`, but there's a better way. Powershell scripts can hook into the `Get-Help` command to provide structured help documentation for the whole script. Let's do both!
+This is great, but it's not immediately known what commands are available without opening up the `.ps1` file and reading it. We could add a command `help` and then spit out some help content with `Write-Host "help string"`, but there's a better way. Powershell scripts can hook into the `Get-Help` command to provide structured help documentation for the whole script. Let's do both!
 
+**[3-help.ps1](https://github.com/kavun/ps-cli/blob/main/3-help.ps1)**
 ```ps1
 <#
 .SYNOPSIS
@@ -141,7 +147,7 @@ Let's look at what we changed:
 1. Removed `Mandatory=$True` from the `$Command` param, so that we can show the help content when you call the script with no params.
 1. Added the `help` command, which ends up calling `Get-Help $PSCommandPath`
 
-This will show help for all 4 of these commands. The goal here is to make this foolproof.
+This will show help for all 4 of these commands. The goal here is to make finding help foolproof.
 ```
 .\3-help.ps1
 
@@ -158,6 +164,7 @@ Get-Help .\3-help.ps1
 
 What we have is great for simple one-liners, but eventually we'll want to pass params to the commands and also support nested commands.
 
+**[4-nest.ps1](https://github.com/kavun/ps-cli/blob/main/4-nest.ps1)**
 ```ps1
 <#
 .SYNOPSIS
@@ -238,9 +245,15 @@ Let's look at what we did:
 
 - We used `ValueFromRemainingArguments` to capture any trailing params in the `$Rest` param and passed those along to the inner functions.
 - We used `ValidateSet` on an inner function's param, just like we did on the script's params.
-- Added help docs to one of the inner functions!
+- Added help docs to one of the inner functions.
 
-These are just examples, but you can see the range of possibilities the open up when we start nesting commands and forwarding params. Here's what this example looks like in use.
+These are just examples, but you can see the range of possibilities that open up when we start nesting commands and forwarding params. Here's what this example looks like in use:
 
 ![Example of nested commands](/assets/ps-cli/4-nest.png)
 
+## Resources
+
+- Scripts from examples: [https://github.com/kavun/ps-cli](https://github.com/kavun/ps-cli)
+- `ValidateSet`: [https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/validateset-attribute-declaration](https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/validateset-attribute-declaration)
+- `ValueFromRemainingArguments`: [https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_parameters#valuefromremainingarguments-argument](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_parameters#valuefromremainingarguments-argument)
+- about_Comment_Based_Help (`<# #>`): [https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_comment_based_help](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_comment_based_help) 
