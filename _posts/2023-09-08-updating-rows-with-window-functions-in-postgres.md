@@ -82,7 +82,7 @@ But what I really wanted was to update 2 rows per `TypeB` grouping, so that the 
 | 12 | A3 | B2 | |
 
 ## Using Window Functions
-To update more than 1 row per `TypeB` grouping, we'll need both of these [[Postgres]] functions
+To update more than 1 row per `TypeB` grouping, we'll need both of these Postgres functions
 - `ROW_NUMBER()` (see [Window Functions Docs](https://www.postgresql.org/docs/current/functions-window.html) docs)
 - `PARTIION BY` (see [Window Functions Tutorial](https://www.postgresql.org/docs/current/tutorial-window.html) tutorial)
 
