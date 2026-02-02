@@ -2,7 +2,7 @@ html {
 	box-sizing: border-box;
 }
 *, *:after, *:before {
-	boz-sizing: inherit;
+	box-sizing: inherit;
 }
 body {
 	margin: 0;
@@ -73,7 +73,7 @@ p { margin: 0.5em 0; }
 .title { margin-bottom: 0; }
 .nowrap { white-space: nowrap; }
 .avatar {
-	background: url('//s.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215?s=100');
+	background: url('//s.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215?s=300&v2');
 	width: 75px;
 	height: 75px;
 	background-size: 75px;
@@ -139,6 +139,9 @@ p { margin: 0.5em 0; }
 		padding: 0;
 	}
 	.pdflink {
+		display: none;
+	}
+	.no-print {
 		display: none;
 	}
 }
