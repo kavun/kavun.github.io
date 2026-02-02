@@ -30,7 +30,7 @@
         }
 
         @media (prefers-color-scheme: dark) {
-            :root {
+            :root:not([data-theme="light"]) {
                 /* Dracula dark mode */
                 --color-bg-primary: #282A36;
                 --color-bg-code: #282A36;
@@ -49,6 +49,26 @@
                 --color-icon-hover: #F8F8F2;
                 --color-shadow-logo: #BD93F9;
             }
+        }
+
+        :root[data-theme="dark"] {
+            /* Dracula dark mode - manual override */
+            --color-bg-primary: #282A36;
+            --color-bg-code: #282A36;
+            --color-bg-tag: #44475A;
+            --color-bg-table-header: #44475A;
+            --color-bg-emphasis: rgba(241, 250, 140, 0.2);
+            --color-text-primary: #F8F8F2;
+            --color-text-secondary: #6272A4;
+            --color-link: #8BE9FD;
+            --color-link-hover: #FF79C6;
+            --color-border-code: #6272A4;
+            --color-border-pre: #6272A4;
+            --color-border-heading: #6272A4;
+            --color-border-table: #6272A4;
+            --color-icon: #6272A4;
+            --color-icon-hover: #F8F8F2;
+            --color-shadow-logo: #BD93F9;
         }
 
         pre, figure, code { margin: 0; }
@@ -267,6 +287,20 @@
             box-shadow: 0 0 0 3px var(--color-shadow-logo);
         }
 
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        .theme-toggle i {
+            font-size: 57px;
+            color: var(--color-icon);
+        }
+        .theme-toggle:hover i {
+            color: var(--color-icon-hover);
+        }
+
         em {
             background-color: var(--color-bg-emphasis);
             font-style: normal;
@@ -297,6 +331,10 @@
             }
             .logo {
                 margin: 7px 0;
+            }
+            .theme-toggle {
+                display: inline-block;
+                vertical-align: middle;
             }
         }
 
@@ -387,6 +425,7 @@
         <a rel="me" href="https://mstdn.social/@kavun" target="_mastodonkavun"><i class="fab fa-mastodon"></i></a>
         <a href="https://www.linkedin.com/pub/kevin-reed/48/74/404" target="_linkedinkavun"><i class="fab fa-linkedin"></i></a>
         <a href="/feed.xml" target="_feed"><i class="fa fa-rss"></i></a>
+        <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fa fa-moon"></i></button>
     </div>
 
     <div class="content">
@@ -394,6 +433,49 @@
     </div>
 
     <script>
+        !(function() {
+            var toggle = document.querySelector('.theme-toggle');
+            var icon = toggle.querySelector('i');
+
+            function getSystemTheme() {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            function getEffectiveTheme() {
+                var saved = localStorage.getItem('theme');
+                return saved || getSystemTheme();
+            }
+
+            function updateIcon(theme) {
+                icon.className = theme === 'dark' ? 'fa fa-sun' : 'fa fa-moon';
+            }
+
+            function applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                updateIcon(theme);
+            }
+
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            } else {
+                updateIcon(getSystemTheme());
+            }
+
+            toggle.addEventListener('click', function() {
+                var current = getEffectiveTheme();
+                var next = current === 'dark' ? 'light' : 'dark';
+                localStorage.setItem('theme', next);
+                applyTheme(next);
+            });
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+                if (!localStorage.getItem('theme')) {
+                    updateIcon(e.matches ? 'dark' : 'light');
+                }
+            });
+        })();
+
         [].forEach &&
         document.querySelectorAll &&
         [].forEach.call(document.querySelectorAll('a:not([href*="mailto"])'), function (e) {
