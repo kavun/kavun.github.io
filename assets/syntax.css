@@ -36,7 +36,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
         /* Dracula dark mode syntax highlighting */
         --color-syntax-bg: #282A36;
         --color-syntax-text: #F8F8F2;
@@ -72,6 +72,43 @@
         --color-syntax-heading: #BD93F9;
         --color-syntax-subheading: #6272A4;
     }
+}
+
+:root[data-theme="dark"] {
+    /* Dracula dark mode syntax highlighting - manual override */
+    --color-syntax-bg: #282A36;
+    --color-syntax-text: #F8F8F2;
+    --color-syntax-comment: #6272A4;
+    --color-syntax-error: #FF5555;
+    --color-syntax-error-bg: #44475A;
+    --color-syntax-keyword: #FF79C6;
+    --color-syntax-operator: #FF79C6;
+    --color-syntax-type: #8BE9FD;
+    --color-syntax-number: #BD93F9;
+    --color-syntax-string: #F1FA8C;
+    --color-syntax-function: #50FA7B;
+    --color-syntax-class: #8BE9FD;
+    --color-syntax-variable: #F8F8F2;
+    --color-syntax-attribute: #50FA7B;
+    --color-syntax-builtin: #8BE9FD;
+    --color-syntax-constant: #BD93F9;
+    --color-syntax-decorator: #50FA7B;
+    --color-syntax-entity: #FF79C6;
+    --color-syntax-exception: #FF5555;
+    --color-syntax-label: #8BE9FD;
+    --color-syntax-namespace: #FF79C6;
+    --color-syntax-tag: #FF79C6;
+    --color-syntax-regex: #FFB86C;
+    --color-syntax-symbol: #BD93F9;
+    --color-syntax-whitespace: #44475A;
+    --color-syntax-deleted: #FF5555;
+    --color-syntax-deleted-bg: #44475A;
+    --color-syntax-inserted: #50FA7B;
+    --color-syntax-inserted-bg: #44475A;
+    --color-syntax-output: #F8F8F2;
+    --color-syntax-prompt: #BD93F9;
+    --color-syntax-heading: #BD93F9;
+    --color-syntax-subheading: #6272A4;
 }
 
 .highlight { background-color: var(--color-syntax-bg); }
