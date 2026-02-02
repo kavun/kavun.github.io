@@ -300,6 +300,33 @@
             color: var(--color-icon-hover);
         }
 
+        [data-tooltip] {
+            position: relative;
+        }
+        [data-tooltip]::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: 8px;
+            padding: 4px 8px;
+            background-color: var(--color-bg-tag);
+            color: var(--color-text-primary);
+            font-size: 14px;
+            white-space: nowrap;
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        [data-tooltip]:hover::after,
+        [data-tooltip]:focus-visible::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
         em {
             background-color: var(--color-bg-emphasis);
             font-style: normal;
@@ -334,6 +361,13 @@
             .theme-toggle {
                 display: inline-block;
                 vertical-align: middle;
+            }
+            [data-tooltip]::after {
+                left: 50%;
+                top: 100%;
+                transform: translateX(-50%);
+                margin-left: 0;
+                margin-top: 8px;
             }
         }
 
@@ -418,13 +452,13 @@
 <body>
 
     <div class="leftnav">
-        <a class="logo" href="/"><img src="//www.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215?s=200&v2" /></a>
-        <a rel="me" href="https://github.com/kavun" target="_githubkavun"><i class="fab fa-github"></i></a>
-        <a rel="me" href="https://twitter.com/kavun" target="_twitterkavun"><i class="fab fa-twitter"></i></a>
-        <a rel="me" href="https://mstdn.social/@kavun" target="_mastodonkavun"><i class="fab fa-mastodon"></i></a>
-        <a href="https://www.linkedin.com/pub/kevin-reed/48/74/404" target="_linkedinkavun"><i class="fab fa-linkedin"></i></a>
-        <a href="/feed.xml" target="_feed"><i class="fa fa-rss"></i></a>
-        <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fab fa-moon"></i></button>
+        <a class="logo" href="/" data-tooltip="Home" aria-label="Home"><img src="//www.gravatar.com/avatar/7a50e2c54da24204ab31432a721aa215?s=200&v2" alt="Home" /></a>
+        <a rel="me" href="https://github.com/kavun" target="_githubkavun" data-tooltip="github.com/kavun" aria-label="github.com/kavun"><i class="fab fa-github"></i></a>
+        <a rel="me" href="https://x.com/kavun" target="_twitterkavun" data-tooltip="x.com/kavun" aria-label="x.com/kavun"><i class="fab fa-x-twitter"></i></a>
+        <a rel="me" href="https://mstdn.social/@kavun" target="_mastodonkavun" data-tooltip="mstdn.social/@kavun" aria-label="mstdn.social/@kavun"><i class="fab fa-mastodon"></i></a>
+        <a href="https://www.linkedin.com/pub/kevin-reed/48/74/404" target="_linkedinkavun" data-tooltip="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="/feed.xml" target="_feed" data-tooltip="RSS Feed" aria-label="RSS Feed"><i class="fa fa-rss"></i></a>
+        <button class="theme-toggle" data-tooltip="Toggle dark mode" aria-label="Toggle dark mode"><i class="fab fa-moon"></i></button>
     </div>
 
     <div class="content">
@@ -490,7 +524,7 @@
          */
         !function(e){"use strict";e.loadCSS=function(t,n,r){var i,l=e.document,o=l.createElement("link");if(n)i=n;else{var a=(l.body||l.getElementsByTagName("head")[0]).childNodes;i=a[a.length-1]}var s=l.styleSheets;o.rel="stylesheet",o.href=t,o.media="only x",i.parentNode.insertBefore(o,n?i:i.nextSibling);var f=function(e){for(var t=o.href,n=s.length;n--;)if(s[n].href===t)return e();setTimeout(function(){f(e)})};return o.onloadcssdefined=f,f(function(){o.media=r||"all"}),o}}(this);
 
-        loadCSS('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
+        loadCSS('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
         loadCSS('/assets/syntax.css');
     </script>
     <noscript>
