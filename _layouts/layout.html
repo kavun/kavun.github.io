@@ -8,6 +8,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
+        :root {
+            color-scheme: light dark;
+            /* Alucard light mode */
+            --color-bg-primary: #fffbeb;
+            --color-bg-code: #f5f1e1;
+            --color-bg-tag: #cfcfde;
+            --color-bg-table-header: #cfcfde;
+            --color-bg-emphasis: rgba(132, 110, 21, 0.15);
+            --color-text-primary: #1f1f1f;
+            --color-text-secondary: #6c664b;
+            --color-link: #036a96;
+            --color-link-hover: #a3144d;
+            --color-border-code: #6c664b;
+            --color-border-pre: #6c664b;
+            --color-border-heading: #6c664b;
+            --color-border-table: #6c664b;
+            --color-icon: #cfcfde;
+            --color-icon-hover: #1f1f1f;
+            --color-shadow-logo: #644ac9;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                /* Dracula dark mode */
+                --color-bg-primary: #282A36;
+                --color-bg-code: #282A36;
+                --color-bg-tag: #44475A;
+                --color-bg-table-header: #44475A;
+                --color-bg-emphasis: rgba(241, 250, 140, 0.2);
+                --color-text-primary: #F8F8F2;
+                --color-text-secondary: #6272A4;
+                --color-link: #8BE9FD;
+                --color-link-hover: #FF79C6;
+                --color-border-code: #6272A4;
+                --color-border-pre: #6272A4;
+                --color-border-heading: #6272A4;
+                --color-border-table: #6272A4;
+                --color-icon: #6272A4;
+                --color-icon-hover: #F8F8F2;
+                --color-shadow-logo: #BD93F9;
+            }
+        }
+
         pre, figure, code { margin: 0; }
         img {
             max-width: 100%;
@@ -30,7 +73,8 @@
 
         body {
             line-height: 1.5em;
-            color: #222;
+            color: var(--color-text-primary);
+            background-color: var(--color-bg-primary);
         }
 
         body * {
@@ -38,8 +82,8 @@
         }
 
         code {
-            background-color: #FAFAFA;
-            border: 1px solid #EDEDED;
+            background-color: var(--color-bg-code);
+            border: 1px solid var(--color-border-code);
             border-radius: 3px;
             padding: 0 0.4em;
             font-size: 0.9em;
@@ -54,14 +98,14 @@
         }
 
         pre {
-            background-color: #FAFAFA;
+            background-color: var(--color-bg-code);
         }
 
         pre > code {
             padding: 0.5em 1em;
             border: 0;
             border-radius: 0;
-            border-left: 5px solid #f2f2f2;
+            border-left: 5px solid var(--color-border-pre);
             display: inline-block;
             tab-size: 4;
             border-radius: 0;
@@ -84,13 +128,13 @@
         }
 
         a {
-            color: #0088cc;
+            color: var(--color-link);
             text-decoration: none;
         }
 
         a:hover,
         a:focus {
-            color: #005580;
+            color: var(--color-link-hover);
             text-decoration: underline;
         }
 
@@ -104,14 +148,14 @@
         }
 
         h2 {
-            border-top: 1px solid #777;
+            border-top: 1px solid var(--color-border-heading);
             margin-bottom: 0.1em;
             margin-top: 2em;
             padding-top: 0.75em;
         }
 
         small {
-            color: #777;
+            color: var(--color-text-secondary);
         }
 
         .post-container h1 {
@@ -123,8 +167,8 @@
             margin-bottom: 2.0em;
         }
 
-        .gist-meta a{color:#0088cc !important;text-decoration:none}
-        .gist-meta a:hover{color:#005580 !important}
+        .gist-meta a{color:var(--color-link) !important;text-decoration:none}
+        .gist-meta a:hover{color:var(--color-link-hover) !important}
 
         .nav {
             margin: 0.5em 1em 0 1em;
@@ -141,7 +185,7 @@
         }
         .post-tag {
             padding: 0.2em 0.6em;
-            background-color: #EFEFEF;
+            background-color: var(--color-bg-tag);
         }
 
         .post-body {
@@ -153,11 +197,11 @@
         }
         .post-body table td,
         .post-body table th {
-            border: 1px solid #777;
+            border: 1px solid var(--color-border-table);
             padding: 0 1em 0 0.5em;
         }
         .post-body table th {
-            background-color: #ddd;
+            background-color: var(--color-bg-table-header);
         }
 
         .top-tag {
@@ -213,18 +257,18 @@
             display: block;
             visibility: visible;
             padding-bottom: 0.2em;
-            color: #DDD;
+            color: var(--color-icon);
         }
         .leftnav i:hover {
-            color: #777;
+            color: var(--color-icon-hover);
         }
 
         .logo img:hover {
-            box-shadow: 0 0 0 3px #777;
+            box-shadow: 0 0 0 3px var(--color-shadow-logo);
         }
 
         em {
-            background-color: rgb(250, 250, 210);
+            background-color: var(--color-bg-emphasis);
             font-style: normal;
         }
 

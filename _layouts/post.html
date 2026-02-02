@@ -15,6 +15,7 @@ layout: layout
     {% if page.comments %}
         <div class="margintop" id="disqus_thread"></div>
         <script>
+            var defined_color_scheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
             var disqus_config = function () {
                 this.page.url = 'https://kevinareed.com{{ page.url }}';
                 this.page.identifier = 'https://kevinareed.com{{ page.url }}';
@@ -23,6 +24,7 @@ layout: layout
                 var d = document, s = d.createElement('script');
                 s.src = '//kavun.disqus.com/embed.js';
                 s.setAttribute('data-timestamp', +new Date());
+                s.setAttribute('data-color-scheme', defined_color_scheme);
                 (d.head || d.body).appendChild(s);
             })();
         </script>
